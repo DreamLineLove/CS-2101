@@ -10,6 +10,12 @@ trailing f or F.
 if the class is public.
 
 ### No 4 
-- Different types can be concantenated 
+- Different types can be concantenated.
 - (Though idk which language mechanism or specific part of Java allows this to 
 happen)
+
+### No 8
+- The output of both a and b will be 10.
+
+### No 11
+- Comments cannot be nested.
