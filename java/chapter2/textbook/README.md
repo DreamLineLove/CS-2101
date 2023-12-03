@@ -1,5 +1,4 @@
-# Chapter 2
-## Exercises from the textbook
+# Chapter 2 Exercises (textbook)
 
 ### No 2
 - Java floating point numbers are double by default unless specified with a 
