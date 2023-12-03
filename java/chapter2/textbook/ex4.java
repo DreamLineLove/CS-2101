@@ -5,5 +5,8 @@ class ex4 {
         String str = "x is ";
         int x = 100;
         System.out.println(str + x);
+
+        str = null;
+        System.out.println(str);
     }
 }
