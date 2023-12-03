@@ -1,18 +1,16 @@
 # Chapter 2 Exercises (textbook)
 
 ### No 2
-- Java floating point numbers are double by default unless specified with a 
+- Floating-point constants in Java are double by default unless specified with a 
 trailing f or F.
-- Java primitives are signed.
+- Numerical primitives in Java are signed (byte, int, long, float, double).
 
 ### No 3
-- Java source file name must be the same as the class name contained within it 
+- The name of a .java file must be the same as the class name contained within it 
 if the class is public.
 
 ### No 4 
-- Different types can be concantenated.
-- (Though idk which language mechanism or specific part of Java allows this to 
-happen)
+- Different data types can undergo type coercion in string concatenation.
 
 ### No 8
 - The output of both a and b will be 10.
