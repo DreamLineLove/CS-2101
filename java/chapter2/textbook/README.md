@@ -14,6 +14,9 @@ if the class is public.
 ### No 4 
 - Different data types can undergo type coercion in string concatenation.
 
+### No 5 
+- *See ex5.java*
+
 ### No 8
 - The output of both a and b will be 10.
 
