@@ -7,6 +7,7 @@ trailing f or F.
 - Numerical primitives in Java are signed (byte, int, long, float, double).
 
 ### No 3
+- *See ex3.java*
 - The name of a .java file must be the same as the class name contained within it 
 if the class is public.
 
