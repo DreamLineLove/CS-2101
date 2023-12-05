@@ -1,6 +1,7 @@
 # Chapter 2 Exercises (textbook)
 
-### No 2
+### No 2 
+- *See ex2.java*
 - Java floating point numbers are double by default unless specified with a 
 trailing f or F.
 - Java primitives are signed.
