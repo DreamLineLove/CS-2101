@@ -6,7 +6,6 @@ class threads {
         Thread badRunnable = new Thread(new RunnableImplement(), "bad runnable");
         Thread goodRunnable = new Thread(new RunnableImplement(), "java is the best!");
 
-        System.out.println("Using runnable interface implementation...");
         badRunnable.start();
         goodRunnable.start();
 
@@ -14,7 +13,6 @@ class threads {
         Thread badThread = new ThreadExtends("bad thread");
         Thread goodThread = new ThreadExtends("java is the best!");
 
-        System.out.println("Using thread class extension...");
         badThread.start();
         goodThread.start();
     }
