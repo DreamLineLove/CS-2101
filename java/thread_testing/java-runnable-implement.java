@@ -1,28 +1,30 @@
-package threadTesting;
-
 class RunnableImplement implements Runnable {
 
     @Override
     public void run() {
-        Thread.sleep(1000);
 
         String threadName = Thread.currentThread().getName();
 
-        System.out.println("Name = " + threadName);
+        System.out.println("\tName = " + threadName);
 
         try {
-            doStuff();
+            Thread.sleep(1000);
+            doStuff(threadName);
+            System.out.println();
         } catch (InterruptedException e) {
             e.printStackTrace();
+            System.out.println();
         }
     }
     
     private void doStuff(String threadName) throws InterruptedException {
        Thread.sleep(4000);
 
-       if (threadName != "java is the best") { 
-           throw new InterruptedException("Java is NOT the best?!");
-       }
+       if (threadName != "java is the best!") { 
+           throw new InterruptedException("java is NOT the best?!!");
+       } else {
+           System.out.println("\n\tOfcourse java is the best!"); 
+        }
     }
 
 }

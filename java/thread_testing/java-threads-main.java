@@ -1,6 +1,4 @@
-package threadTesting; 
-
-class Main {
+class threads {
 
     public static void main(String[] args) {
         Thread badRunnable = new Thread(new RunnableImplement(), "bad one");
