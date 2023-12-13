@@ -3,13 +3,13 @@ class RunnableImplement implements Runnable {
     @Override
     public void run() {
 
-        String threadName = Thread.currentThread().getName();
+        String name = Thread.currentThread().getName();
 
-        System.out.println("\tName = " + threadName);
+        System.out.println("\tName = " + name);
 
         try {
             Thread.sleep(1000);
-            doStuff(threadName);
+            doStuff(name);
             System.out.println();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -17,10 +17,10 @@ class RunnableImplement implements Runnable {
         }
     }
     
-    private void doStuff(String threadName) throws InterruptedException {
+    private void doStuff(String name) throws InterruptedException {
        Thread.sleep(4000);
 
-       if (threadName != "java is the best!") { 
+       if (name != "java is the best!") { 
            throw new InterruptedException("java is NOT the best?!!");
        } else {
            System.out.println("\n\tOfcourse java is the best!"); 
