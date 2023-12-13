@@ -2,7 +2,6 @@ class RunnableImplement implements Runnable {
 
     @Override
     public void run() {
-
         String name = Thread.currentThread().getName();
 
         System.out.println("\tName = " + name);
@@ -24,7 +23,7 @@ class RunnableImplement implements Runnable {
            throw new InterruptedException("java is NOT the best?!!");
        } else {
            System.out.println("\n\tOfcourse java is the best!"); 
-        }
+       }
     }
 
 }

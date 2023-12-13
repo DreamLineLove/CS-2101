@@ -5,10 +5,9 @@ class ThreadExtends extends Thread {
 
     @Override
     public void run() {
-
         String name = Thread.currentThread().getName();
 
-        System.out.println("\tName = " + name);
+        System.out.println("Name = " + name);
 
         try {
             Thread.sleep(1000);
@@ -19,14 +18,14 @@ class ThreadExtends extends Thread {
             System.out.println();
         }
     }
-    
-    private void doStuff(String name) throws InterruptedException {
-       Thread.sleep(4000);
 
-       if (name != "java is the best!") { 
-           throw new InterruptedException("java is NOT the best?!!");
-       } else {
-           System.out.println("\n\tOfcourse java is the best!"); 
+    private void doStuff(String name) throws InterruptedException {
+        Thread.sleep(4000);
+
+        if (name != "java is the best!") { 
+            throw new InterruptedException("java is NOT the best?!!");
+        } else {
+            System.out.println("\n\tOfcourse java is the best!"); 
         }
     }
 }
