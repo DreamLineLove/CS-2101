@@ -1,4 +1,4 @@
-class ex2 {
+class Ex2_2 {
     public static void main(String argv[]) {
         // int x = 5 + 5.0f; // incompatible types: possible lossy conversion
         

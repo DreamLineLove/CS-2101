@@ -1,4 +1,4 @@
-class ex4 {
+class Ex2_4 {
     public static void main(String argv[]) {
         System.out.println("\"Here i\"\n\"Here 2\"");
         
