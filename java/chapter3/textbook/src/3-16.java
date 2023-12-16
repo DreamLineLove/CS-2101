@@ -7,6 +7,7 @@ class Ex3_16 {
         System.out.println(k / i - j);
         System.out.println(i / (double)j);
         System.out.println(i % (j + k));
+        System.out.println(i++ - --k);
 
     }
 
