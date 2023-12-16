@@ -12,13 +12,19 @@ class Ex3_13 {
         x--;
         System.out.println(x);
 
+        --x;
+        System.out.println(x);
+
         x -= 1;
+        System.out.println(x);
+
+        x += -1;
         System.out.println(x);
 
         x = x - 1;
         System.out.println(x);
 
-        x = x & (~1);
+        x = x + -1;
         System.out.println(x);
 
     }
