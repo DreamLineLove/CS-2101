@@ -9,9 +9,16 @@ class Ex3_13 {
         sc.close();
 
         x--;
+        System.out.println(x);
+
         x -= 1;
+        System.out.println(x);
+
         x = x - 1;
+        System.out.println(x);
+
         x = x & (~1);
+        System.out.println(x);
 
     }
 
