@@ -15,5 +15,16 @@ class StringEquality {
 
         if (s1 == s2) System.out.println("s1 == s2 works");
         if (s1.equals(s2)) System.out.println("only s1.equals(s2) works");
+
+        String st1 = "Hello";
+        String st2 = "Hello";
+
+        if (st1 == st2) System.out.println("st1 == st2 works");
+
+        st2 = "World";
+        String st3 = "World";
+
+        if (st2 == st3) System.out.println("st2 == st3 works");
+
     }
 }
