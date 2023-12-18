@@ -1,4 +1,4 @@
-class Chap3CondOp {
+public class Chap3CondOp {
 
     public static void main(String argv[]) {
 
