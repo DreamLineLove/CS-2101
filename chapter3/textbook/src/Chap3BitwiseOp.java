@@ -42,8 +42,16 @@ class Chap3BitwiseOp {
         c = ~a >> 2; // decimal -2 or binary 1111 1110
         System.out.println("Decimal c = " + c + "\t\tBinary c = " + Integer.toBinaryString(c));
 
-        // c = a ^ b; // decimal 11 or binary 0000 1011
-        // System.out.println("Decimal c = " + c + "\t\tBinary c = " + Integer.toBinaryString(c));
-
+        c = ~a >>> 2; 
+        /*
+         * Taking the complement of a results in a number starting with 1 (negative).
+         * It is then shifted two positions to the right disregarding sign.
+         * (Meaning the leftmost 2 bits are now filled with 0).
+         *
+         * This means the resulting number is a very huge positive number, since
+         * c is defined as an int (32-bits)
+        */
+        System.out.println("Decimal c = " + c + "\tBinary c = " + Integer.toBinaryString(c));
+        
     }
 }
