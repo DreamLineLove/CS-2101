@@ -49,7 +49,7 @@ class Chap3BitwiseOp {
          * (Meaning the leftmost 2 bits are now filled with 0).
          *
          * This means the resulting number is a very huge positive number, since
-         * c is defined as an int (32-bits)
+         * c is defined as an int (32-bits).
         */
         System.out.println("Decimal c = " + c + "\tBinary c = " + Integer.toBinaryString(c));
         
