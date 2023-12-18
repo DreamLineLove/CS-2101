@@ -12,6 +12,18 @@ class Chap3BitwiseOp {
         c = a ^ b; // decimal 11 or binary 0000 1011
         System.out.println("Decimal c = " + c + "\t\tBinary c = " + Integer.toBinaryString(c));
 
+        c = a | b; // decimal 15 or binary 0000 1111
+        System.out.println("Decimal c = " + c + "\t\tBinary c = " + Integer.toBinaryString(c));
+
+        // c = a ^ b; // decimal 11 or binary 0000 1011
+        // System.out.println("Decimal c = " + c + "\t\tBinary c = " + Integer.toBinaryString(c));
+        //
+        // c = a ^ b; // decimal 11 or binary 0000 1011
+        // System.out.println("Decimal c = " + c + "\t\tBinary c = " + Integer.toBinaryString(c));
+        //
+        // c = a ^ b; // decimal 11 or binary 0000 1011
+        // System.out.println("Decimal c = " + c + "\t\tBinary c = " + Integer.toBinaryString(c));
+
     }
 
 }
