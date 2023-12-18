@@ -36,6 +36,9 @@ class Chap3BitwiseOp {
         c = b >> 2; // decimal 3 or binary 0000 0011
         System.out.println("Decimal c = " + c + "\t\tBinary c = " + Integer.toBinaryString(c));
 
+        c = b << 2; // decimal 56 or binary 0011 1000
+        System.out.println("Decimal c = " + c + "\t\tBinary c = " + Integer.toBinaryString(c));
+
         // c = a ^ b; // decimal 11 or binary 0000 1011
         // System.out.println("Decimal c = " + c + "\t\tBinary c = " + Integer.toBinaryString(c));
 
