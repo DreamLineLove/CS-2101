@@ -35,5 +35,5 @@ It is then shifted two positions to the right disregarding sign.
 (Meaning the leftmost 2 bits are now filled with 0).
          
 This means the resulting number is a very huge positive number, since c is 
-defined as an int (32-bits)
+defined as an int (32-bits).
 
