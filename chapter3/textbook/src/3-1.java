@@ -16,9 +16,9 @@ class x {
     static void print(double a, double b, boolean isInteger) {
 
         if (isInteger) {
-            a = (int)a;
-            b = (int)b;
-            int x = a / b;
+            int y = (int)a;
+            int z = (int)b;
+            int x = y / z;
 
             System.out.println("int x = " + x + ";");
             return;
