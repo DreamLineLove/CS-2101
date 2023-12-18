@@ -7,7 +7,7 @@ class Chap3PlusOp {
         String part3 = "Java";
         String title = part1 + part2;
         title += part3;
-        System.out.println("The title of this book is " + title);
+        System.out.println("The title of this book is \"" + title + "\"");
 
     }
 
