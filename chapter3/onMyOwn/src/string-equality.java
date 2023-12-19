@@ -6,10 +6,6 @@ class StringEquality {
         String s1 = new String("Here is a string");
         String s2 = new String("Here is a string");
 
-        // if (str1.equals(str2)) {
-        //     System.out.println("They are equal!");
-        // }     
-
         if (str1 == str2) System.out.println("str1 == str2 works");
         if (str1.equals(str2)) System.out.println("only str1.equals(str2) works");
 
