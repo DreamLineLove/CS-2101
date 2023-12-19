@@ -22,5 +22,18 @@ class StringEquality {
 
         if (st2 == st3) System.out.println("st2 == st3 works");
 
+        /*
+         * Equality operator in java allegedly checks for equality of the object
+         * represented in memory.
+         *
+         * Java "interns" str1 and str2 in the same string pool, so when "==" 
+         * makes the check, it finds that both variables are pointing to the 
+         * same memory location.
+         *
+         * On the other hand, creating a string using "new" allocates the contents
+         * of the string in a new location, even though it might be a duplicate of
+         * the contents of another string variable.
+         */
+
     }
 }
