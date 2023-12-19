@@ -1,4 +1,4 @@
-class Ex3_12 {
+class ExA_B {
 
     public static void main(String[] args) {
 
