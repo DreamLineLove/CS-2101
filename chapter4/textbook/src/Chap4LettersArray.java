@@ -9,7 +9,7 @@ class Chap4LettersArray {
         int i = 0;
         int j = 0;
 
-        for (i = 0; i < s.length; i++) {
+        for (i = 0; i < s.length(); i++) {
             if (s.charAt(i) != ' ') {
                 line[j] = s.charAt(i);
                 j++;
