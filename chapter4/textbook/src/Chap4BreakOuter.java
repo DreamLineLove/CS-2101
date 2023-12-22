@@ -11,7 +11,7 @@ class Chap4BreakOuter {
             System.out.println();
         }
 
-        System.out.println("\nNumbers divislbe by 3 are:");
+        System.out.println("\nNumbers divisible by 3 are:");
 
         outer:
         for (int i = 1; i < 10; i++) {
