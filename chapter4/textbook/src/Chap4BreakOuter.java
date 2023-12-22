@@ -15,7 +15,7 @@ class Chap4BreakOuter {
 
         outer:
         for (int i = 1; i < 10; i++) {
-             (int j = 0; j < 10; j++) {
+             for (int j = 0; j < 10; j++) {
                 if (matrix[i][j] % 3 == 0) {
                     System.out.println(matrix[i][j] + " ");
                     break outer;
