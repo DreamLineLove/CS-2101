@@ -20,7 +20,7 @@ class Ex4_1a {
 
 class Ex4_1b {
 
-    static void mysteryMethod(char test) {
+    void mysteryMethod(char test) {
         switch (test) {
             case 'a':
                 System.out.println("test is A");
@@ -54,6 +54,7 @@ class Ex4_1 {
     public static void main(String[] args) {
 
         Ex4_1a.run();
+        Ex4_1b.run();
 
     }
 
