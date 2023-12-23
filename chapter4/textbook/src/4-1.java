@@ -76,6 +76,7 @@ class Ex4_1 {
 
         Ex4_1a.run();
         Ex4_1b.run();
+        Ex4_1c.run();
 
     }
 
