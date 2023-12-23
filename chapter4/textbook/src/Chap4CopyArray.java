@@ -20,6 +20,17 @@ class Chap4CopyArray {
         }
         System.out.println();
 
+        for (i = 0; i < sourceMarks.length; i++) {
+            targetMarks[i] = sourceMarks[i];
+        }
+
+        System.out.println("After copying arrays");
+        for (i = 0; i < sourceMarks.length; i++) {
+            System.out.print("sourceMarks[" + i + "]=" + sourceMarks[i]);
+            System.out.println(" targetMarks[" + i + "]=" + targetMarks[i]);
+        }
+        System.out.println();
+
     }
 
 }
