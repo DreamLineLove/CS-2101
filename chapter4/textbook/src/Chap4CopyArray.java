@@ -71,6 +71,10 @@ class Chap4CopyArray {
             System.out.print("sourceMarks[" + i + "]=" + sourceMarks[i]);
             System.out.println(" targetMarks[" + i + "]=" + targetMarks[i]);
         }
+        // System.out.println(targetMarks[i]);
+        // This won't work anymore since sourceMarks array (which the targetMarks
+        // is pointing to) does not hold 6 items. 
+        // A runtime ArrayIndexOutOfBoundsException will occurr.
         System.out.println();
 
     }
