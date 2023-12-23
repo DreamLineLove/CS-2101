@@ -11,7 +11,7 @@ class Ex4_1a {
         else
         System.out.println("$$$$$"); // Guess: will not get printed
         if (cond3) 
-        System.out.println("&&&&&");
+        System.out.println("&&&&&"); // Guess: will not get printed
         System.out.println("*****");
 
     }
