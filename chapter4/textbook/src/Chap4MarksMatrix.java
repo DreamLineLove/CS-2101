@@ -10,14 +10,26 @@ class Chap4MarksMatrix {
         };
         int i = 0;
         int j = 0;
+        int transponse[][] = getTranspose(marks);
 
         System.out.println("\nMarks for students:");
 
-        for (i = 0; i < students.length; i++) {
-            System.out.println(students[i] + " -> " + "maths=" + marks[i][j] + " " + "english=" + marks[i][j+1] + " " + "science=" + marks[i][j+2]);
+        for (i = 0; i < transponse.length; i++) {
+            System.out.println(students[i] + " -> " + "maths=" + transponse[i][j] + " " + "english=" + transponse[i][j+1] + " " + "science=" + transponse[i][j+2]);
             System.out.println();
         }
 
     }
 
+    private static int[][] getTranspose(int[][] o) {
+        int temp[][] = new int[o[0].length][o.length];
+        for (int i = 0; i < o.length; i++) {
+            for (int j = 0; j < o[0].length; j++) {
+                temp[j][i] = o[i][j];
+            }
+        }
+        return temp;
+    }
+
 }
+
