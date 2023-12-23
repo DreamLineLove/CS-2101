@@ -1,4 +1,4 @@
-class Chap5CopyArray {
+class Chap4CopyArray {
 
     public static void main(String argv[]) {
 
