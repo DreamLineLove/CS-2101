@@ -31,6 +31,17 @@ class Chap4CopyArray {
         }
         System.out.println();
 
+        for (i = 0; i < sourceMarks.length; i++) {
+            sourceMarks[i] = 0;
+        }
+
+        System.out.println("After reassigning sourceMarks arrays to 0");
+        for (i = 0; i < sourceMarks.length; i++) {
+            System.out.print("sourceMarks[" + i + "]=" + sourceMarks[i]);
+            System.out.println(" targetMarks[" + i + "]=" + targetMarks[i]);
+        }
+        System.out.println();
+
     }
 
 }
