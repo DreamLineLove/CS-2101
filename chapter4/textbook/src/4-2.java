@@ -37,9 +37,9 @@ class Ex4_2 {
         Ex4_2a.mysteryMethod(20);              
         Ex4_2a.mysteryMethod(99);              
 
-        Ex4_2b.mysteryMethod('a');              
-        Ex4_2b.mysteryMethod('b');              
-        Ex4_2b.mysteryMethod('c');              
+        System.out.println(Ex4_2b.mysteryMethod('a'));              
+        System.out.println(Ex4_2b.mysteryMethod('b'));              
+        System.out.println(Ex4_2b.mysteryMethod('c'));              
 
     }
 
