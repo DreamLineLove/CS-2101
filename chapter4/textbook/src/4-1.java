@@ -1,6 +1,6 @@
 class Ex4_1a {
 
-     static void run() {
+    static void run() {
 
         boolean cond1 = true, cond2 = true, cond3 = false;     
 
@@ -20,19 +20,30 @@ class Ex4_1a {
 
 class Ex4_1b {
 
-     static void run() {
+    static void mysteryMethod(char test) {
+        switch (test) {
+            case 'a':
+                System.out.println("test is A");
+            case 'b':
+                System.out.println("test is B"); // Guess: this WILL get printed
+            default :
+                System.out.println("test is default"); // Guess: this WILL get printed
+        }
+    }
 
-                
+    static void run() {
+        Ex4_1b mystery = new Ex4_1b();    
 
+        mystery.mysteryMethod('b');
     }
 
 }
 
 class Ex4_1c {
 
-     static void run() {
+    static void run() {
 
-                
+
 
     }
 
