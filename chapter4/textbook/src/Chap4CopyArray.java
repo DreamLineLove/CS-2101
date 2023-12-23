@@ -35,7 +35,7 @@ class Chap4CopyArray {
             sourceMarks[i] = 0;
         }
 
-        System.out.println("After reassigning sourceMarks arrays to 0");
+        System.out.println("After reassigning sourceMarks array to 0");
         for (i = 0; i < sourceMarks.length; i++) {
             System.out.print("sourceMarks[" + i + "]=" + sourceMarks[i]);
             System.out.println(" targetMarks[" + i + "]=" + targetMarks[i]);
@@ -45,6 +45,17 @@ class Chap4CopyArray {
         targetMarks = sourceMarks;
 
         System.out.println("After using assignment to \"copy\" arrays");
+        for (i = 0; i < sourceMarks.length; i++) {
+            System.out.print("sourceMarks[" + i + "]=" + sourceMarks[i]);
+            System.out.println(" targetMarks[" + i + "]=" + targetMarks[i]);
+        }
+        System.out.println();
+
+        for (i = 0; i < targetMarks.length; i++) {
+            targetMarks[i] = 88;
+        }
+
+        System.out.println("After making changes to targetMarks array");
         for (i = 0; i < sourceMarks.length; i++) {
             System.out.print("sourceMarks[" + i + "]=" + sourceMarks[i]);
             System.out.println(" targetMarks[" + i + "]=" + targetMarks[i]);
