@@ -1,6 +1,6 @@
 class Ex4_1a {
 
-    private static void run() {
+     static void run() {
 
         boolean cond1 = true, cond2 = true, cond3 = false;     
 
@@ -20,7 +20,7 @@ class Ex4_1a {
 
 class Ex4_1b {
 
-    private static void run() {
+     static void run() {
 
                 
 
@@ -30,7 +30,7 @@ class Ex4_1b {
 
 class Ex4_1c {
 
-    private static void run() {
+     static void run() {
 
                 
 
