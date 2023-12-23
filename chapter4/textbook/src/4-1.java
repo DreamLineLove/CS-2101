@@ -43,7 +43,28 @@ class Ex4_1c {
 
     static void run() {
 
+        int testcase = 2;
+        boolean cond1 = true, cond2 = true, cond3 = false;
 
+        switch (testcase) {
+            case 1:
+                if (cond1)
+                    System.out.println("A");
+                break;
+            case 2:
+                System.out.println("B"); // Guess: WILL print
+                if (cond2)
+                    System.out.println("C"); // Guess: WILL print
+                else
+                    System.out.println("D");
+                System.out.println("E"); // Guess: WILL print
+            case 3:
+                if (cond3)
+                    System.out.println("F");
+            default:
+                System.out.println("G"); // Guess: WILL print
+                break;
+        }
 
     }
 
