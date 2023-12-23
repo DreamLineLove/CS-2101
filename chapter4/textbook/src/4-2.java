@@ -17,6 +17,18 @@ class Ex4_2a {
 
 }
 
+class Ex4_2b {
+
+    static char mysteryMethod(char testCase) {
+    
+        if (testCase == 'a') return 'b';
+        else if (testCase == 'b') return 'c';
+        else return 'a';
+
+    }
+
+}
+
 class Ex4_2 {
 
     public static void main(String[] args) {
@@ -24,6 +36,10 @@ class Ex4_2 {
         Ex4_2a.mysteryMethod(10);              
         Ex4_2a.mysteryMethod(20);              
         Ex4_2a.mysteryMethod(99);              
+
+        Ex4_2b.mysteryMethod(a);              
+        Ex4_2b.mysteryMethod(b);              
+        Ex4_2b.mysteryMethod(c);              
 
     }
 
