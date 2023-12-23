@@ -62,6 +62,17 @@ class Chap4CopyArray {
         }
         System.out.println();
 
+        for (i = 0; i < sourceMarks.length; i++) {
+            sourceMarks[i] = 3;
+        }
+
+        System.out.println("After making changes to sourceMarks array");
+        for (i = 0; i < sourceMarks.length; i++) {
+            System.out.print("sourceMarks[" + i + "]=" + sourceMarks[i]);
+            System.out.println(" targetMarks[" + i + "]=" + targetMarks[i]);
+        }
+        System.out.println();
+
     }
 
 }
