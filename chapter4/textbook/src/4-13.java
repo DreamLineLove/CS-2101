@@ -62,6 +62,8 @@ class Ex4_13c {
     // When x = 2 -> 2:12:2
     // When x = 1 -> 1:1:1
     
+    // HUGE: println() adds newline char after printing, not before printing!
+    
 }
 
 class Ex4_13 {
