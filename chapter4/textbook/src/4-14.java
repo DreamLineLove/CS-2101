@@ -4,34 +4,43 @@ class Ex4_14 {
 
         int i = 0;
 
-        for (i = 0; i <= 201; i++) {
+        for (i = 0; i <= 200; i++) {
+            newline(i, 10);
             System.out.print(i * 5 + " ");
-
-            newline(i);
-        }
-
-        i = 0;
-
-        while (i <= 1000) {
-            if (i % 5 == 0) System.out.print(i * 5 + " ");
-            i++;
-
-            newline(i);
         }
         
         i = 0;
+        System.out.println("\n");
+
+        for (i = 0; i <= 1000; i++) {
+            newline(i, 50);
+            if (i % 5 == 0) System.out.print(i + " ");
+        }
+
+        i = 0;
+        System.out.println("\n");
+
+        while (i <= 1000) {
+            newline(i, 50);
+            if (i % 5 == 0) System.out.print(i + " ");
+            i++;
+        }
+
+        i = 0;
+        System.out.println("\n");
 
         do {
-            if (i % 5 == 0) System.out.print(i * 5 + " ");
+            newline(i, 50);
+            if (i % 5 == 0) System.out.print(i + " ");
             i++;
-
-            newline(i);
         } while (i <= 1000);
+
+        System.out.println("\n");
 
     } 
 
-    static void newline(int i) {
-        if (i % 20 == 0) System.out.println();
+    static void newline(int i, int divideBy) {
+        if (i % divideBy == 0) System.out.println();
     }
 
 }
