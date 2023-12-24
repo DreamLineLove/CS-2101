@@ -45,12 +45,36 @@ class Ex4_13b {
     
 }
 
+class Ex4_13c {
+
+    static void run() {
+        for (int i = 4; i > 0; i--) {
+            System.out.print(i + ":");
+            for (int j = 1; j <= i; j++) 
+                System.out.print(j);
+            System.out.println(":" + i); 
+        }
+    }
+
+    // Prediction
+    // When x = 4 -> 4:1234:4
+    // When x = 3 -> 3:123:3
+    // When x = 2 -> 2:12:2
+    // When x = 1 -> 1:1:1
+    
+}
+
 class Ex4_13 {
 
     public static void main(String[] args) {
        
         Ex4_13a.run();
+        System.out.println();
+
         Ex4_13b.run();
+        System.out.println();
+
+        Ex4_13c.run();
 
     }
 
