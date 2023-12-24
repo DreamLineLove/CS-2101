@@ -7,7 +7,7 @@ class Ex4_12 {
 
             do {
                 randomInt = (int)(Math.random() * 9);
-
+ 
             } while (randomInt % 2 != 0);
 
             System.out.println(randomInt);
