@@ -12,7 +12,7 @@ class Ex4_11 {
         System.out.print("Enter value of x: ");
         x = sc.nextInt();
 
-        System.out.print("Enter value of x: ");
+        System.out.print("Enter value of y: ");
         y = sc.nextInt();
 
         sc.close();
@@ -26,7 +26,7 @@ class Ex4_11 {
         double result = 1;
 
         for (int i = 0; i < absolute(y); i++) {
-            result = result * absolute(y);
+            result = result * x;
         }
 
         if (y < 0) {
