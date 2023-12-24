@@ -13,11 +13,11 @@ class Ex4_13a {
 
     // Prediction
     // When x = 2 -> 2222
-    // When x = 3 -> 2222  
-    // When x = 4 -> 222
-    // When x = 5 -> 222
-    // When x = 6 -> 22
-    // When x = 7 -> 22
+    // When x = 3 -> 3333  
+    // When x = 4 -> 444
+    // When x = 5 -> 555
+    // When x = 6 -> 66
+    // When x = 7 -> 77
     
 }
 
