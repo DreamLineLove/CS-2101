@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 class Ex4_3 {
 
     public static void main(String[] args) {
@@ -5,8 +7,15 @@ class Ex4_3 {
         int type;
         double price, profit;
 
-        type = Integer.parseInt(args[0]);
-        price = Double.parseDouble(args[1]);
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("enter type of item (0 or 1): ");
+        type = sc.nextInt();
+
+        System.out.print("enter price of item: ");
+        price = sc.nextDouble();
+
+        sc.close();
 
         switch (type) {
             case 0:
