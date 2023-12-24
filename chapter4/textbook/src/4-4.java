@@ -21,6 +21,11 @@ class Ex4_4 {
 
         sc.close();
 
+        if (year < 0 || amt < 0) {
+            System.err.println("Amount loan or loan period should not negative!");
+            return;
+        }
+
         switch (accountType) {
             case "Normal":
                 if (year < 5) interest = amt * 0.15; 
@@ -34,6 +39,8 @@ class Ex4_4 {
             default:
                 interest = amt * 0.18; 
         }
+
+        System.err.println("Interest is " + interest);
 
     }
 
