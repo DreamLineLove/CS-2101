@@ -2,7 +2,8 @@ class Ex4_19 {
 
     public static void main(String[] args) {
         
-        printFibonacci(1);        
+        printFibonacci(0);        
+        System.out.println();
 
     }
 
@@ -11,7 +12,7 @@ class Ex4_19 {
         System.out.print(currentFibonacci + " ");
 
         if (currentFibonacci < 144) {
-            printFibonacci(n);
+            printFibonacci(n + 1);
         }
     }
 
