@@ -17,26 +17,16 @@ class Ex4_20 {
         }          
 
         // Prediction
-        // When i = 10,
-        //      1 3 5 7 
-        // When i = 9,
-        //      1 3 5 7
-        // When i = 8,
-        //      1 3 5 7
-        // When i = 7,
-        //      1 3 5 7
-        // When i = 6,
-        //      1 3 5 
-        // When i = 5,
-        //      1 3 5
-        // When i = 4,
-        //      1 3 
-        // When i = 3,
-        //      1 3
-        // When i = 2,
-        //      1 
-        // When i = 1,
-        //      nothing
+        // When i = 10 --> 1 3 5 7
+        // When i = 9  --> 1 3 5 7
+        // When i = 8  --> 1 3 5 7
+        // When i = 7  --> 1 3 5 7
+        // When i = 6  --> 1 3 5
+        // When i = 5  --> 1 3 5
+        // When i = 4  --> 1 3
+        // When i = 3  --> 1 3
+        // When i = 2  --> 1
+        // When i = 1  --> 1
 
     }
 
