@@ -14,13 +14,13 @@ class User {
     int month;
 
     User(String name, int month) {
-        name = this.name; 
-        month = this.month;
+        this.name = name;
+        this.month = month;
     }
 
     void print() {
-        System.out.println("My name is " + name);
-        System.out.println("It is " + monthName(month));
+        System.out.println("My name is " + this.name);
+        System.out.println("It is " + monthName(this.month));
     }
 
     String monthName(int month) {
