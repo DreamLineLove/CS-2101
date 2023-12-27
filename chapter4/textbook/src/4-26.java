@@ -16,7 +16,7 @@ class Ex4_26 {
     }
 
     static double calculateNthTerm(int n) {
-        return (n % 2 == 0) ? (-4 / 2 * n - 1) : (4 / 2 * n - 1);
+        return (n % 2 == 0) ? -4.0 / (2 * n - 1) : 4.0 / (2 * n - 1);
     }
 
 }
