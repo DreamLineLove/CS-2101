@@ -33,9 +33,9 @@ class Ex4_28_29_30 {
     }
 
     static int getHighest(int [] arr) {
-        int highest = 0;
+        int highest = arr[0];
 
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 1; i < arr.length; i++) {
             if (arr[i] > highest) highest = arr[i];
         }
 
@@ -43,9 +43,9 @@ class Ex4_28_29_30 {
     }
 
     static int getLowest(int [] arr) {
-        int lowest = 0;
+        int lowest = arr[0];
 
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 1; i < arr.length; i++) {
             if (arr[i] < lowest) lowest = arr[i];
         }
 
