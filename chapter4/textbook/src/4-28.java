@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Ex4_28 {
+class Ex4_28_29_30 {
 
     public static void main(String[] args) {
 
@@ -17,6 +17,8 @@ class Ex4_28 {
         sc.close();
 
         System.out.println("Count of " + x + " = " + countMultiple(arr, x));
+        System.out.println("Lowest = " + getLowest(arr));
+        System.out.println("Highest = " + getHighest(arr));
 
     }
 
@@ -28,6 +30,26 @@ class Ex4_28 {
         }
 
         return count;
+    }
+
+    static int getHighest(int [] arr) {
+        int highest = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > highest) highest = arr[i];
+        }
+
+        return highest;
+    }
+
+    static int getLowest(int [] arr) {
+        int lowest = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < lowest) lowest = arr[i];
+        }
+
+        return lowest;
     }
 
 } 
