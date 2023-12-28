@@ -1,4 +1,4 @@
-class Ex4_40 {
+class Ex4_41 {
 
     public static void main(String[] args) {
         int i = 7, j = 0;
