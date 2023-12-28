@@ -9,6 +9,7 @@ class Ex4_35_36_37 {
         };
         display(matrix);
         displaySum(matrix);
+        displayOddSum(matrix);
 
     }
 
@@ -31,6 +32,18 @@ class Ex4_35_36_37 {
         }
         
         System.out.println("\nSum of matrix = " + sum);
+    }
+
+    static void displayOddSum(int matrix[][]) {
+        int sum = 0;
+
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (matrix[i][j] % 2 != 0) sum += matrix[i][j];
+            }
+        }
+        
+        System.out.println("\nOdd sum of matrix = " + sum);
     }
 
 }
