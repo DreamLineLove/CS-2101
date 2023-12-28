@@ -2,12 +2,12 @@ class Ex4_38 {
 
     public static void main(String[] args) {
 
-        switchVersion(19);
-        switchVersion(20);
-        switchVersion(21);
-        switchVersion(22);
-        switchVersion(23);
-        switchVersion(24);
+        switchVersion(19); // j = 4
+        switchVersion(20); // j = 10
+        switchVersion(21); // j = 9
+        switchVersion(22); // j = 9
+        switchVersion(23); // j = 4 
+        switchVersion(24); // j = 7
 
     }
 
