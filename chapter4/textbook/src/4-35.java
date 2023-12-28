@@ -8,6 +8,7 @@ class Ex4_35_36_37 {
             {2, 3, 5},
         };
         display(matrix);
+        displaySum(matrix);
 
     }
 
@@ -18,6 +19,18 @@ class Ex4_35_36_37 {
             }
             System.out.println();
         }
+    }
+
+    static void displaySum(int matrix[][]) {
+        int sum = 0;
+
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                sum += matrix[i][j];
+            }
+        }
+        
+        System.out.println("\nSum of matrix = " + sum);
     }
 
 }
