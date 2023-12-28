@@ -25,4 +25,38 @@ class Ex4_38 {
         System.out.println("(switch) j = " + j);
     }
 
+    static void ifVersion(int i) {
+        int j = 0;
+
+        if (i < 20 || i > 24 || i == 23) {
+            j += 4;
+            System.out.println("(if) j = " + j);
+            return;
+        }
+
+        if (i == 20) {
+            j += 1;
+            j += 2;
+            j += 3;
+            j += 4;
+            System.out.println("(if) j = " + j);
+            return;
+        }
+
+        if (i == 21 || i == 22) {
+            j += 2;
+            j += 3;
+            j += 4;
+            System.out.println("(if) j = " + j);
+            return;
+        }
+
+        if (i == 24) {
+            j += 3;
+            j += 4;
+            System.out.println("(if) j = " + j);
+            return;
+        }
+    }
+
 }
