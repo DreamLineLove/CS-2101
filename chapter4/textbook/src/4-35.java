@@ -1,4 +1,4 @@
-class Ex4_35 {
+class Ex4_35_36_37 {
 
     public static void main(String[] args) {
 
