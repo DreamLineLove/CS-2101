@@ -13,7 +13,7 @@ class Ex4_39 {
         int i = 0, j = 0;
         for (i = 0; i < 10; i += 3) 
             j += i;
-        System.out.println(i + " " + j); // Guess -> i + j = 30
+        System.out.println(i + " " + j); // Guess -> i = 12, j = 18
 
     }
 
