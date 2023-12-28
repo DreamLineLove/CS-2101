@@ -9,6 +9,13 @@ class Ex4_38 {
         switchVersion(23); // j = 4 
         switchVersion(24); // j = 7
 
+        ifVersion(19); // j = 4
+        ifVersion(20); // j = 10
+        ifVersion(21); // j = 9
+        ifVersion(22); // j = 9
+        ifVersion(23); // j = 4 
+        ifVersion(24); // j = 7
+
     }
 
     static void switchVersion(int i) {
