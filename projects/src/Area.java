@@ -24,40 +24,29 @@ class Area {
 
         switch (shape) {
             case 0:
-                int r;
+                double r;
                 System.out.println("Area of circle = Pi * radius * radius\n");
                 System.out.print("Enter radius.. ");
-                r = sc.nextInt();
+                r = sc.nextDouble();
                 System.out.println("Area of circle = " + Math.PI * r * r);
                 break;
             case 1:
-                int s;
+                double s;
                 System.out.println("Area of square = length * length\n");
                 System.out.print("Enter side length.. ");
-                s = sc.nextInt();
+                s = sc.nextDouble();
                 System.out.println("Area of square = " + s * s);
                 break;
             case 2:
-                int b, h;
+                double b, h;
                 System.out.println("Area of triangle = 1/2 (base * height)\n");
                 System.out.print("Enter base.. ");
-                b = sc.nextInt();
+                b = sc.nextDouble();
                 System.out.print("Enter height.. ");
-                h = sc.nextInt();
-                System.out.println("Area of square = " + ((b * h) / 2));
+                h = sc.nextDouble();
+                System.out.println("Area of triangle = " + ((b * h) / 2));
                 break;
-            case 3:
-            case 4:
-            case 5:
         }
-            // "Circle",
-            // "Ellipse",
-            // "Square",
-            // "Rectangle",
-            // "Triangle",
-            // "Parallelogram",
-            // "Trapezoid",
-
 
         sc.close();
     }
