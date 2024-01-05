@@ -20,35 +20,54 @@ class Area {
         }
         System.out.print("\nChoose shape.. ");
         shape = sc.nextInt();
-        System.out.println();
 
         switch (shape) {
             case 0:
-                double r;
-                System.out.println("Area of circle = Pi * radius * radius\n");
+                double []circle = new double[1];
+                surround("Area of circle = Pi * radius * radius");
                 System.out.print("Enter radius.. ");
-                r = sc.nextDouble();
-                System.out.println("Area of circle = " + Math.PI * r * r);
+                circle[0] = sc.nextDouble();
+                System.out.println("- Area of circle = " + Math.PI * circle[0] * circle[0]);
                 break;
             case 1:
-                double s;
-                System.out.println("Area of square = length * length\n");
+                double []square = new double[1];
+                surround("Area of square = length * length");
                 System.out.print("Enter side length.. ");
-                s = sc.nextDouble();
-                System.out.println("Area of square = " + s * s);
+                square[0] = sc.nextDouble();
+                System.out.println("- Area of square = " + square[0] * square[0]);
                 break;
             case 2:
-                double b, h;
-                System.out.println("Area of triangle = 1/2 (base * height)\n");
+                double []triangle = new double[2];
+                surround("Area of triangle = 1/2 (base * height)");
                 System.out.print("Enter base.. ");
-                b = sc.nextDouble();
+                triangle[0] = sc.nextDouble();
                 System.out.print("Enter height.. ");
-                h = sc.nextDouble();
-                System.out.println("Area of triangle = " + ((b * h) / 2));
+                triangle[1] = sc.nextDouble();
+                System.out.println("- Area of triangle = " + ((triangle[0] * triangle[1]) / 2));
+                break;
+            case 3:
+                double []rectangle = new double[2];
+                surround("Area of rectangle = length * width");
+                System.out.print("Enter length.. ");
+                rectangle[0] = sc.nextDouble();
+                System.out.print("Enter width.. ");
+                rectangle[1] = sc.nextDouble();
+                System.out.println("- Area of rectangle = " + rectangle[0] * rectangle[1]);
                 break;
         }
 
         sc.close();
+    }
+
+    static void surround(String s) {
+        for (int i = 0; i < s.length() + 4; i++) {
+            System.out.print("-");
+        }
+        System.out.println("\n| " + s + " |");
+        for (int i = 0; i < s.length() + 4; i++) {
+            System.out.print("-");
+        }
+        System.out.println("\n");
     }
 
 }
