@@ -24,7 +24,7 @@ class Area {
         switch (shape) {
             case 0:
                 double []circle = new double[1];
-                surround("Area of circle = Pi * radius * radius");
+                surround("Area of circle = πr^2");
                 System.out.print("Enter radius.. ");
                 circle[0] = sc.nextDouble();
                 System.out.println("- Area of circle = " + Math.PI * circle[0] * circle[0]);
@@ -54,9 +54,43 @@ class Area {
                 rectangle[1] = sc.nextDouble();
                 System.out.println("- Area of rectangle = " + rectangle[0] * rectangle[1]);
                 break;
+            case 4:
+                double []parallelogram = new double[2];
+                surround("Area of parallelogram = base * height");
+                System.out.print("Enter base.. ");
+                parallelogram[0] = sc.nextDouble();
+                System.out.print("Enter height.. ");
+                parallelogram[1] = sc.nextDouble();
+                System.out.println("- Area of parallelogram = " + parallelogram[0] * parallelogram[1]);
+                break;
+            case 5:
+                double []trapezoid = new double[3];
+                surround("Area of trapezoid = ( (a + b) / 2 ) * height");
+                System.out.print("Enter a.. ");
+                trapezoid[0] = sc.nextDouble();
+                System.out.print("Enter b.. ");
+                trapezoid[1] = sc.nextDouble();
+                System.out.print("Enter height.. ");
+                trapezoid[2] = sc.nextDouble();
+                System.out.println("- Area of trapezoid = " + ((trapezoid[0] + trapezoid[1]) / 2) * trapezoid[2]);
+                break;
+            case 6:
+                double []ellipse = new double[2];
+                surround("Area of ellipse = πab");
+                System.out.print("Enter a.. ");
+                ellipse[0] = sc.nextDouble();
+                System.out.print("Enter b.. ");
+                ellipse[1] = sc.nextDouble();
+                System.out.println("- Area of ellipse = " + Math.PI * ellipse[0] * ellipse[1]);
+                break;
         }
 
         sc.close();
+    }
+
+    static void calculateArea(String formula, Scanner sc, String... terms) {
+        double []valueOfTerms = new double[terms.length];
+        surround(formula);
     }
 
     static void surround(String s) {
