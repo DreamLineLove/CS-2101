@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 class Area {
 
@@ -21,76 +22,72 @@ class Area {
         System.out.print("\nChoose shape.. ");
         shape = sc.nextInt();
 
-        switch (shape) {
-            case 0:
-                double []circle = new double[1];
-                surround("Area of circle = πr^2");
-                System.out.print("Enter radius.. ");
-                circle[0] = sc.nextDouble();
-                System.out.println("- Area of circle = " + Math.PI * circle[0] * circle[0]);
+        while (true) {
+            try {
+                switch (shape) {
+                    case 0:
+                    calculateArea(shapes[0].toLowerCase(), "Area of circle = πr^2", sc, "radius");
+                    break;
+                    case 1:
+                    calculateArea(shapes[1].toLowerCase(), "Area of square = length * length", sc, "side length");
+                    break;
+                    case 2:
+                    calculateArea(shapes[2].toLowerCase(), "Area of triangle = 1/2 (base * height)", sc, "base", "height");
+                    break;
+                    case 3:
+                    calculateArea(shapes[3].toLowerCase(), "Area of rectangle = length * width", sc, "length", "width");
+                    break;
+                    case 4:
+                    calculateArea(shapes[4].toLowerCase(), "Area of parallelogram = base * height", sc, "base", "height");
+                    break;
+                    case 5:
+                    calculateArea(shapes[5].toLowerCase(), "Area of trapezoid = ( (a + b) / 2 ) * height", sc, "a", "b", "height");
+                    break;
+                    case 6:
+                    calculateArea(shapes[6].toLowerCase(), "Area of ellipse = πab", sc, "a", "b");
+                    break;
+                }
                 break;
-            case 1:
-                double []square = new double[1];
-                surround("Area of square = length * length");
-                System.out.print("Enter side length.. ");
-                square[0] = sc.nextDouble();
-                System.out.println("- Area of square = " + square[0] * square[0]);
-                break;
-            case 2:
-                double []triangle = new double[2];
-                surround("Area of triangle = 1/2 (base * height)");
-                System.out.print("Enter base.. ");
-                triangle[0] = sc.nextDouble();
-                System.out.print("Enter height.. ");
-                triangle[1] = sc.nextDouble();
-                System.out.println("- Area of triangle = " + ((triangle[0] * triangle[1]) / 2));
-                break;
-            case 3:
-                double []rectangle = new double[2];
-                surround("Area of rectangle = length * width");
-                System.out.print("Enter length.. ");
-                rectangle[0] = sc.nextDouble();
-                System.out.print("Enter width.. ");
-                rectangle[1] = sc.nextDouble();
-                System.out.println("- Area of rectangle = " + rectangle[0] * rectangle[1]);
-                break;
-            case 4:
-                double []parallelogram = new double[2];
-                surround("Area of parallelogram = base * height");
-                System.out.print("Enter base.. ");
-                parallelogram[0] = sc.nextDouble();
-                System.out.print("Enter height.. ");
-                parallelogram[1] = sc.nextDouble();
-                System.out.println("- Area of parallelogram = " + parallelogram[0] * parallelogram[1]);
-                break;
-            case 5:
-                double []trapezoid = new double[3];
-                surround("Area of trapezoid = ( (a + b) / 2 ) * height");
-                System.out.print("Enter a.. ");
-                trapezoid[0] = sc.nextDouble();
-                System.out.print("Enter b.. ");
-                trapezoid[1] = sc.nextDouble();
-                System.out.print("Enter height.. ");
-                trapezoid[2] = sc.nextDouble();
-                System.out.println("- Area of trapezoid = " + ((trapezoid[0] + trapezoid[1]) / 2) * trapezoid[2]);
-                break;
-            case 6:
-                double []ellipse = new double[2];
-                surround("Area of ellipse = πab");
-                System.out.print("Enter a.. ");
-                ellipse[0] = sc.nextDouble();
-                System.out.print("Enter b.. ");
-                ellipse[1] = sc.nextDouble();
-                System.out.println("- Area of ellipse = " + Math.PI * ellipse[0] * ellipse[1]);
-                break;
+            } catch (InputMismatchException e ) {
+                System.out.println("The input must be numerical values.\n");
+            }
         }
 
         sc.close();
     }
 
-    static void calculateArea(String formula, Scanner sc, String... terms) {
+    static void calculateArea(String shape, String formula, Scanner sc, String... terms) throws InputMismatchException {
         double []valueOfTerms = new double[terms.length];
         surround(formula);
+        try {
+            for (int i = 0; i < terms.length; i++) {
+                System.out.print("Enter value of " + terms[i] + "\t");
+                valueOfTerms[i] = sc.nextDouble();
+            }
+        } catch (InputMismatchException e) {}
+        switch (shape) {
+            case "circle":
+                System.out.println("- Area of circle = " + Math.PI * valueOfTerms[0] * valueOfTerms[0]);
+                break;
+            case "square":
+                System.out.println("- Area of square = " + valueOfTerms[0] * valueOfTerms[0]);
+                break;
+            case "triangle":
+                System.out.println("- Area of triangle = " + ((valueOfTerms[0] * valueOfTerms[1]) / 2));
+                break;
+            case "rectangle":
+                System.out.println("- Area of rectangle = " + valueOfTerms[0] * valueOfTerms[1]);
+                break;
+            case "parallelogram":
+                System.out.println("- Area of parallelogram = " + valueOfTerms[0] * valueOfTerms[1]);
+                break;
+            case "trapezoid":
+                System.out.println("- Area of trapezoid = " + ((valueOfTerms[0] + valueOfTerms[1]) / 2) * valueOfTerms[2]);
+                break;
+            case "ellipse":
+                System.out.println("- Area of ellipse = " + Math.PI * valueOfTerms[0] * valueOfTerms[1]);
+                break;
+        }
     }
 
     static void surround(String s) {
