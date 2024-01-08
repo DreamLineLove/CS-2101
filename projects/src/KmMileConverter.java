@@ -8,6 +8,8 @@ class KmMileConverter {
         String conversions[] = {
             "km to mile",
             "mile to km",
+            "C to F",
+            "F to C",
         };
 
         java.util.Scanner sc = new Scanner(System.in);
@@ -17,25 +19,32 @@ class KmMileConverter {
         System.out.print("\nChoose conversion.. ");
         choice = sc.nextInt();
 
-        convertDistance(conversions[choice], sc);
+        convert(conversions[choice], sc);
 
         sc.close();
     }
 
-    static void convertDistance(String conversion, Scanner sc) {
+    static void convert(String conversion, Scanner sc) {
         String []units = conversion.split(" to ");
         double value;
-        DecimalFormat result = new DecimalFormat("0.000000");
+        DecimalFormat distance = new DecimalFormat("0.000000");
+        DecimalFormat temperature = new DecimalFormat("0.00");
 
         System.out.print("\nEnter value of " + units[0] + "\t");
         value = sc.nextDouble();
 
         switch (units[0]) {
             case "km":
-                System.out.println("- " + value + " " + units[0] + " is " + result.format(value * 0.621371) + " " + units[1]);
+                System.out.println("- " + value + " " + units[0] + " is " + distance.format(value * 0.621371) + " " + units[1]);
                 break;
             case "mile":
-                System.out.println("- " + value + " " + units[0] + " is " + result.format(value * 1.609344) + " " + units[1]);
+                System.out.println("- " + value + " " + units[0] + " is " + distance.format(value * 1.609344) + " " + units[1]);
+                break;
+            case "C":
+                System.out.println("- " + value + " " + units[0] + " is " + temperature.format((value * 9 / 5) + 32) + " " + units[1]);
+                break;
+            case "F":
+                System.out.println("- " + value + " " + units[0] + " is " + temperature.format((value - 32) * 5 / 9) + " " + units[1]);
                 break;
         }
     }
