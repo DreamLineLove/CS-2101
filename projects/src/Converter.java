@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.text.DecimalFormat;
 
-class KmMileConverter {
+class Converter {
 
     public static void main(String argv[]) {
         int choice; 
@@ -30,7 +30,7 @@ class KmMileConverter {
         DecimalFormat distance = new DecimalFormat("0.000000");
         DecimalFormat temperature = new DecimalFormat("0.00");
 
-        System.out.print("\nEnter value of " + units[0] + "\t");
+        System.out.print("\nEnter value of " + units[0] + "  ");
         value = sc.nextDouble();
 
         switch (units[0]) {
