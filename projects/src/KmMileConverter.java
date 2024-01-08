@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.text.DecimalFormat;
 
 class KmMileConverter {
 
@@ -24,19 +25,17 @@ class KmMileConverter {
     static void convertDistance(String conversion, Scanner sc) {
         String []units = conversion.split(" to ");
         double value;
-        double result;
+        DecimalFormat result = new DecimalFormat("0.000000");
 
         System.out.print("\nEnter value of " + units[0] + "\t");
         value = sc.nextDouble();
 
         switch (units[0]) {
             case "km":
-                result = value * 0.621371;
-                System.out.println("- " + value + " " + units[0] + " is " + result + " " + units[1]);
+                System.out.println("- " + value + " " + units[0] + " is " + result.format(value * 0.621371) + " " + units[1]);
                 break;
             case "mile":
-                result = value * 1.609344;
-                System.out.println("- " + value + " " + units[0] + " is " + result + " " + units[1]);
+                System.out.println("- " + value + " " + units[0] + " is " + result.format(value * 1.609344) + " " + units[1]);
                 break;
         }
     }
