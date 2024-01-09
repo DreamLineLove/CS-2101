@@ -16,7 +16,7 @@ class Statistics_MeasuresOfCentralTendency {
             set[i] = sc.nextDouble();
         }
 
-        System.out.println("Mean = ", mean(set));
+        System.out.println("Mean = " + mean(set));
 
         sc.close();
     }
