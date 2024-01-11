@@ -51,7 +51,7 @@ class Area {
 
     static void calculateArea(String shape, String formula, Scanner sc, String... terms) throws InputMismatchException {
         double []valueOfTerms = new double[terms.length];
-        surround(formula);
+        box(formula);
         while (true) {
             try {
                 for (int i = 0; i < terms.length; i++) {
@@ -89,7 +89,7 @@ class Area {
         }
    }
 
-    static void surround(String s) {
+    static void box(String s) {
         for (int i = 0; i < s.length() + 4; i++) {
             System.out.print("-");
         }
