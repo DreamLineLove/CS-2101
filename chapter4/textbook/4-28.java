@@ -53,5 +53,3 @@ class Ex4_28_29_30 {
     }
 
 } 
-
-// write an array in c or c++ to take in the constrast
