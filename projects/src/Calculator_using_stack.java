@@ -1,3 +1,4 @@
+import java.util.Scanner;
 import java.util.Stack;
 
 class CalculatorUsingStack {
@@ -9,7 +10,7 @@ class CalculatorUsingStack {
         return (c == '+' || c == '-' || c == '*' || c == '/' || c == '(' || c == ')');
     }
 
-    static double getPrecedence(char c) {
+    static int getPrecedence(char c) {
         switch (c) {
             case '+':
             case '-': return 1;
@@ -21,18 +22,18 @@ class CalculatorUsingStack {
         }
     }
 
-    static double operate(double val1, double val2, char c) {
+    static int operate(int val1, int val2, char c) {
         if (c == '+') return val1 + val2;
         if (c == '-') return val1 - val2;
         if (c == '*') return val1 * val2;
         return val1 / val2;
     }
 
-    static double evaluate(String s) {
-        Stack<Double> operands = new Stack<Double>();
+    static int evaluate(String s) {
+        Stack<Integer> operands = new Stack<Integer>();
         Stack<Character> operators = new Stack<Character>();
 
-        double val = 0;
+        int val = 0;
         int pos = 0;
 
         while (pos < s.length()) {
@@ -54,7 +55,7 @@ class CalculatorUsingStack {
                     while (operators.peek() != '(') {
                         spot = operators.pop();
                         val = operands.pop();
-                        double prev = operands.pop();
+                        int prev = operands.pop();
                         val = operate(prev, val, spot);
                         operands.push(val);
                     }
@@ -69,7 +70,7 @@ class CalculatorUsingStack {
                         val = 0;
                     }
                     else {
-                        double prevval = operands.pop();
+                        int prevval = operands.pop();
                         char prevop = operators.pop();
                         prevval = operate(prevval, val, prevop);
                         operands.push(prevval);
@@ -82,7 +83,7 @@ class CalculatorUsingStack {
         }
 
         while (!operators.isEmpty()) {
-            double prev = operands.pop();
+            int prev = operands.pop();
             char spot = operators.pop();
             val = operate(prev, val, spot);
         }
@@ -90,10 +91,29 @@ class CalculatorUsingStack {
     }
 
     public static void main(String []args) {
-        System.out.println(evaluate("3 + 4 + 5"));
-        System.out.println(evaluate("3 * 4 + 5"));
-        System.out.println(evaluate("3 + 4 * 5"));
-        System.out.println(evaluate("(3 + 4) * 5"));
+        System.out.println("\tCALCULATOR (using stack)");
+        System.out.println("\t------------------------\n");
+
+        System.out.println("1.\tOnly integers may be calculated.");
+        System.out.println("2.\t+ - * / ( ) are supported.");
+        System.out.println("3.\tAvoid using nested ().");
+        System.out.println("4.\tType q to exit.");
+        System.out.println("\ne.g.    5 + 2");
+        System.out.println("        (7 * 2) + 5");
+        System.out.println("        (25 * 3) + 78 * 4 \n");
+        Scanner sc = new Scanner(System.in);
+        
+        while (true) {
+                System.out.print("Enter: \t");
+                if (sc.hasNext("q")) break;
+                else {
+                    String s = sc.nextLine();
+                    System.out.println("> \t" + evaluate(s) + "\n"); 
+                }
+        }
+
+        System.out.println("\n\tThanks for using calculator!");
+        sc.close();
     }
 }
 

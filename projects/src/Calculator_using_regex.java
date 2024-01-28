@@ -3,8 +3,8 @@ import java.util.Scanner;
 class CalculatorUsingRegex {
 
     public static void main(String argv[]) {
-        System.out.println("\tCALCULATOR");
-        System.out.println("\t----------\n");
+        System.out.println("\tCALCULATOR (using regex)");
+        System.out.println("\t------------------------\n");
 
         System.out.println("1.\tTwo operands may be used.");
         System.out.println("2.\t+ - * / < > are supported.");
