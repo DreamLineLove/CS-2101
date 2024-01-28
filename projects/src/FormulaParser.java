@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.util.HashMap;
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Stack;
 
 class FormulaParser {
@@ -16,9 +16,9 @@ class FormulaParser {
         return (c == '+' || c == '-' || c == '*' || c == '/' || c == '(' || c == ')');
     }
 
-    static String separateTerms(String formula) {
+    static String[] separate(String formula) {
         String []parts = formula.split("=", 2);
-        return parts[1];
+        return parts;
     }
 
     static int getPrecedence(char c) {
@@ -40,36 +40,40 @@ class FormulaParser {
         return val1 / val2;
     }
 
-    static ArrayList<Character> extractVariables(String s) {
-        ArrayList<Character> varArr = new ArrayList<>();
+    static HashSet<Character> extractVariables(String s) {
+        HashSet<Character> varSet = new HashSet<>();
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-            if (isLetter(c)) varArr.add(c);
+            if (isLetter(c)) varSet.add(c);
         }
-        return varArr;
+        return varSet;
     }
 
-    static HashMap<Character, Integer> mapVariables(ArrayList<Character> varArr, int []terms) {
-        HashMap<Character, Integer> map = new HashMap<>();
-        for (int i = 0; i < terms.length; i++) {
-            map.put(varArr.get(i), terms[i]);
-        }
-        return map;
-    }
-
-    static int[] getTerms(Scanner sc, ArrayList<Character> varArr) {
-        int terms[] = new int[varArr.size()];
-        for (int i = 0; i < terms.length; i++) {
-            System.out.print("value of " + varArr.get(i) + ": ");
+    static int[] getTerms(Scanner sc, HashSet<Character> varSet) {
+        int terms[] = new int[varSet.size()];
+        int i = 0;
+        for (Character c : varSet) {
+            System.out.print("value of " + c + ": ");
             terms[i] = sc.nextInt();
+            i++;        
         }
         return terms;
     }
 
+    static HashMap<Character, Integer> mapVariables(HashSet<Character> varSet, int []terms) {
+        HashMap<Character, Integer> map = new HashMap<>();
+        int i = 0;
+        for (Character c : varSet) {
+            map.put(c, terms[i]);
+            i++;
+        }
+        return map;
+    }
+
     static int evaluate(Scanner sc, String s) {
-        ArrayList<Character> varArr = extractVariables(s);
-        int terms[] = getTerms(sc, varArr);
-        HashMap<Character, Integer> map = mapVariables(varArr, terms);
+        HashSet<Character> varSet = extractVariables(s);
+        int terms[] = getTerms(sc, varSet);
+        HashMap<Character, Integer> map = mapVariables(varSet, terms);
         Stack<Integer> operands = new Stack<Integer>();
         Stack<Character> operators = new Stack<Character>();
 
