@@ -15,6 +15,7 @@ class Statistics_MeasuresOfCentralTendency {
         double []set = new double[size];
         Map<Double, Integer> map = new HashMap<>();
 
+        System.out.println();
         for (int i = 0; i < size; i++) {
             System.out.print("\t enter element " + i + ": ");
             set[i] = sc.nextDouble();
@@ -27,22 +28,12 @@ class Statistics_MeasuresOfCentralTendency {
         }
 
         frequencyTable(map);
-        System.out.println("\nMean\t" + mean(set));
+        System.out.printf("\nMean\t%.4f\n", mean(set));
         mode(map);
-        System.out.println("\nMedian\t" + median(set));
-        System.out.println("\nRange\t" + range(set));
+        System.out.println("Median\t" + median(set));
+        System.out.println("Range\t" + range(set));
 
         sc.close();
-    }
-
-    static double mean(double []set) {
-        double sum = 0;
-
-        for (int i = 0; i < set.length; i++) {
-            sum += set[i];
-        }
-
-        return sum / set.length;
     }
 
     static void frequencyTable(Map<Double, Integer> map) {
@@ -51,6 +42,14 @@ class Statistics_MeasuresOfCentralTendency {
         for (Map.Entry<Double, Integer> entry : map.entrySet()) {
             System.out.println(entry.getKey() + "\t" + entry.getValue());
         }
+    }
+
+    static double mean(double []set) {
+        double sum = 0;
+        for (int i = 0; i < set.length; i++) {
+            sum += set[i];
+        }
+        return sum / set.length;
     }
 
     static void mode(Map<Double, Integer> map) {
@@ -70,12 +69,13 @@ class Statistics_MeasuresOfCentralTendency {
         }
 
         if (mode.size() == 1) {
-            System.out.println("\nMode\t" + mode.get(0));
+            System.out.println("Mode\t" + mode.get(0));
         } else {
             System.out.println("\nMode(s)");
             for (Double m : mode) {
                 System.out.println("\t" + m);
             }
+            System.out.println();
         }
     }
 
@@ -92,19 +92,19 @@ class Statistics_MeasuresOfCentralTendency {
     }
 
     static double largest(double []arr) {
-        int largestElementIndex = 0;
+        int maxIndex = 0;
         for (int i = 1; i < arr.length; i++) {
-            if (arr[i] > arr[largestElementIndex]) largestElementIndex = i;
+            if (arr[i] > arr[maxIndex]) maxIndex = i;
         }
-        return arr[largestElementIndex];
+        return arr[maxIndex];
     }
 
     static double smallest(double []arr) {
-        int smallestElementIndex = 0;
+        int minIndex = 0;
         for (int i = 1; i < arr.length; i++) {
-            if (arr[i] < arr[smallestElementIndex]) smallestElementIndex = i;
+            if (arr[i] < arr[minIndex]) minIndex = i;
         }
-        return arr[smallestElementIndex];
+        return arr[minIndex];
     }
 
 }

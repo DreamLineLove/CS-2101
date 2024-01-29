@@ -4,21 +4,8 @@ import java.util.HashSet;
 import java.util.Stack;
 
 class FormulaParser {
-    static boolean isDigit(char c) {
-        return Character.isDigit(c);
-    }
-
-    static boolean isLetter(char c) {
-        return Character.isLetter(c);
-    }
-
     static boolean isOperator(char c) {
         return (c == '+' || c == '-' || c == '*' || c == '/' || c == '(' || c == ')');
-    }
-
-    static String[] separate(String formula) {
-        String []parts = formula.split("=", 2);
-        return parts;
     }
 
     static int getPrecedence(char c) {
@@ -40,16 +27,13 @@ class FormulaParser {
         return val1 / val2;
     }
 
-    static HashSet<Character> extractVariables(String s) {
+    static HashMap<Character, Integer> getTerms(Scanner sc, String s) {
         HashSet<Character> varSet = new HashSet<>();
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-            if (isLetter(c)) varSet.add(c);
+            if (Character.isLetter(c)) varSet.add(c);
         }
-        return varSet;
-    }
 
-    static int[] getTerms(Scanner sc, HashSet<Character> varSet) {
         int terms[] = new int[varSet.size()];
         int i = 0;
         for (Character c : varSet) {
@@ -57,12 +41,9 @@ class FormulaParser {
             terms[i] = sc.nextInt();
             i++;        
         }
-        return terms;
-    }
 
-    static HashMap<Character, Integer> mapVariables(HashSet<Character> varSet, int []terms) {
         HashMap<Character, Integer> map = new HashMap<>();
-        int i = 0;
+        i = 0;
         for (Character c : varSet) {
             map.put(c, terms[i]);
             i++;
@@ -71,9 +52,7 @@ class FormulaParser {
     }
 
     static int evaluate(Scanner sc, String s) {
-        HashSet<Character> varSet = extractVariables(s);
-        int terms[] = getTerms(sc, varSet);
-        HashMap<Character, Integer> map = mapVariables(varSet, terms);
+        HashMap<Character, Integer> variables = getTerms(sc, s);
         Stack<Integer> operands = new Stack<Integer>();
         Stack<Character> operators = new Stack<Character>();
 
@@ -82,10 +61,10 @@ class FormulaParser {
 
         while (pos < s.length()) {
             char spot = s.charAt(pos);
-            if (isDigit(spot)) {
+            if (Character.isDigit(spot)) {
                 val = (val * 10) + Character.getNumericValue(spot);
-            } else if (isLetter(spot)) {
-                val = map.get(spot);
+            } else if (Character.isLetter(spot)) {
+                val = variables.get(spot);
             } else if (isOperator(spot)) {
                 if (spot == '(') {
                     operators.push(spot);
