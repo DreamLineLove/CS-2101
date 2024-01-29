@@ -1,3 +1,7 @@
+// Teacher, please also compile FormulaParser.java because Volume.java 
+// calls the 'evaluate' method from the FormulaParser class in line 47
+// down below
+
 import java.util.Scanner;
 
 class Volume {

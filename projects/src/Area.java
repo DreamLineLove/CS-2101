@@ -1,3 +1,7 @@
+// Teacher, please also compile FormulaParser.java because Area.java 
+// calls the 'evaluate' method from the FormulaParser class in line 49
+// down below
+
 import java.util.Scanner;
 
 class Area {

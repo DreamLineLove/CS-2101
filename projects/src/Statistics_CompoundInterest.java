@@ -1,21 +1,17 @@
-import java.text.DecimalFormat;
 import java.util.Scanner;
 
 class Statistics_CompoundInterest {
-
-    static DecimalFormat dfmt = new DecimalFormat("0.00");
+    static String []terms = {
+        "A", "total amount after n years",
+        "P", "principal (original value)",
+        "r", "rate of interest per year",
+        "n", "number of years the money is invested",
+    };
 
     public static void main(String argv[]) {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("\tCOMPOUND INTEREST CALCULATOR\n");
-
-        String []terms = {
-            "A", "total amount after n years",
-            "P", "principal (original value)",
-            "r", "rate of interest per year",
-            "n", "number of years the money is invested",
-        };
         formula("A = P (1 + r / 100)^n", terms);
 
         double []values = new double[terms.length / 2 - 1];
@@ -24,9 +20,13 @@ class Statistics_CompoundInterest {
             values[j] = sc.nextDouble();
         }
 
-        System.out.println("\nTotal amount after " + values[2] + " years = " + calculate(values));
+        System.out.printf("\nTotal amount after %.1f years = %.4f\n", values[2], calculate(values));
 
         sc.close();
+    }
+
+    static double calculate(double []terms) {
+        return terms[0] * Math.pow(1 + (terms[1] / 100), terms[2]);
     }
 
     static void formula(String s, String... terms) {
@@ -48,10 +48,4 @@ class Statistics_CompoundInterest {
         }
         System.out.println();
     }
-
-    static String calculate(double []terms) {
-        double result = terms[0] * Math.pow(1 + (terms[1] / 100), terms[2]);
-        return dfmt.format(result);
-    }
-
 }

@@ -1,3 +1,6 @@
+// Teacher, Area and Volume use the 'evaluate' method from this FormulaParser
+// class. When running Area and Volume classes, please also compile this class.
+
 import java.util.Scanner;
 import java.util.HashMap;
 import java.util.HashSet;
