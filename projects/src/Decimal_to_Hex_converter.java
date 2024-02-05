@@ -45,7 +45,8 @@ class DecimalToHexConverter {
 
         System.out.print("\nbase 10\t\tbase 16\n-------\t\t-------\n" + dec + "\t\t");
         for (int i = 0; i < hexDigits.length; i++) {
-                System.out.print(hexDigits[i]);
+            System.out.print(hexDigits[i]);
+            if ((i + 1) % 4 == 0) System.out.print(" ");
         }
         System.out.println("\n");
         

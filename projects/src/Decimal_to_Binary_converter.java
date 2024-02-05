@@ -41,7 +41,8 @@ class DecimalToBinaryConverter {
 
         System.out.print("\nbase 10\t\tbase 2\n-------\t\t-------\n" + dec + "\t\t");
         for (int i = 0; i < bits.length; i++) {
-                System.out.print(bits[i]);
+            System.out.print(bits[i]);
+            if ((i + 1) % 4 == 0) System.out.print(" ");
         }
         System.out.println("\n");
         
