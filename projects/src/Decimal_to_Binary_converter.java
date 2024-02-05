@@ -1,42 +1,50 @@
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
 
 class DecimalToBinaryConverter {
-    static ArrayList<Integer> convertToBinary(int dec) {
-        ArrayList<Integer> bits = new ArrayList<>();
+    static char[] bits(int dec) {
+        int []digits = new int[64];
+        int place = 0;
         int number = dec;
-
         while (number > 0) {
-            bits.add(number % 2);
+            digits[place] = number % 2;
             number = number / 2;
+            place += 1;
+        }
+        digits[place] = -1;
+
+        char []bits = new char[place];
+
+        for (int i = 0; i < place; i++) {
+            int temp = digits[i];
+            digits[i] = digits[place - 1];
+            digits[place - 1] = temp;
+            place -= 1;
         }
 
+        for (int i = 0; i < bits.length; i++) {
+            bits[i] = (char)(digits[i] + '0');
+        }
         return bits;
-    }
-
-    static void displayBinary(int dec, ArrayList<Integer> bits) {
-        System.out.print(dec + " in binary form is ");
-        int count = 1;
-        for (int i : bits) {
-            System.out.print(i);
-            if (count % 4 == 0) System.out.print(" ");
-            count++;
-        }
-        System.out.println("\n");
     }
 
     public static void main(String []args) {
         Scanner sc = new Scanner(System.in);
 
-        int dec;
-        System.out.print("\nEnter number in decimal form: ");
-        dec = sc.nextInt();
-        
-        ArrayList<Integer> binary = convertToBinary(dec);
-        Collections.reverse(binary);
-        displayBinary(dec, binary);
+        System.out.println("\tDECIMAL TO BINARY CONVERTER");
+        System.out.println("\t---------------------------\n");
 
+        int dec;
+        System.out.print("Enter decimal (base 10) number: ");
+        dec = sc.nextInt();
+
+        char bits[] = bits(dec);
+
+        System.out.print("\nbase 10\t\tbase 2\n-------\t\t-------\n" + dec + "\t\t");
+        for (int i = 0; i < bits.length; i++) {
+                System.out.print(bits[i]);
+        }
+        System.out.println("\n");
+        
         sc.close();
     }
 }
