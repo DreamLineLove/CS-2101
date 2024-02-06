@@ -1,5 +1,5 @@
 // Teacher, please also compile FormulaParser.java because Converter.java 
-// calls the evaluate() method from FormulaParser in line ? down below.
+// calls the evaluate() method from FormulaParser in line 55 down below.
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -24,8 +24,6 @@ class Converter {
 
     static HashMap<Character, String> unitsMap = new HashMap<>();
     static {
-        unitsMap.put('k', "km");
-        unitsMap.put('m', "mile");
         unitsMap.put('F', "fahrenheit");
         unitsMap.put('C', "celsius");
         unitsMap.put('K', "kelvin");
