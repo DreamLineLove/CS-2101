@@ -1,52 +1,82 @@
+// Teacher, please also compile FormulaParser.java because Converter.java 
+// calls the evaluate() method from FormulaParser in line ? down below.
+
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Scanner;
-import java.text.DecimalFormat;
 
 class Converter {
+    static int which;
 
-    public static void main(String argv[]) {
-        int choice; 
-        String conversions[] = {
-            "km to mile",
-            "mile to km",
-            "C to F",
-            "F to C",
-        };
+    static String []conversions = {
+        "Fahrenheit to Celsius",
+        "Celsius to Fahrenheit",
+        "Kelvin to Celsius",
+        "Celsius to Kelvin",
+    };
 
-        java.util.Scanner sc = new Scanner(System.in);
+    static String []formulae = {
+        "C = (F - 32) * 5 / 9",
+        "F = (C * 9) / 5 + 32",
+        "C = K - 273",
+        "K = C + 273",
+    };
+
+    static HashMap<Character, String> unitsMap = new HashMap<>();
+    static {
+        unitsMap.put('k', "km");
+        unitsMap.put('m', "mile");
+        unitsMap.put('F', "fahrenheit");
+        unitsMap.put('C', "celsius");
+        unitsMap.put('K', "kelvin");
+    }
+
+    public static void main(String []args) {
+        System.out.println("\tUNIT CONVERTER");
+        System.out.println("\t--------------");
+
+        System.out.println("!.\tOnly integers may be calculated.");
+        System.out.println("e.g.    5 is allowed.");
+        System.out.println("        5.54 is not allowed.\n");
+
+        Scanner sc = new Scanner(System.in);
         for (int i = 0; i < conversions.length; i++) {
             System.out.println(i + "\t" + conversions[i]);
         }
-        System.out.print("\nChoose conversion.. ");
-        choice = sc.nextInt();
+        System.out.print("\nType number.. ");
+        which = sc.nextInt();
 
-        convert(conversions[choice], sc);
+        convert(sc, formulae[which]);
 
         sc.close();
     }
 
-    static void convert(String conversion, Scanner sc) {
-        String []units = conversion.split(" to ");
-        double value;
-        DecimalFormat distance = new DecimalFormat("0.000000");
-        DecimalFormat temperature = new DecimalFormat("0.00");
-
-        System.out.print("\nEnter value of " + units[0] + "  ");
-        value = sc.nextDouble();
-
-        switch (units[0]) {
-            case "km":
-                System.out.println("- " + value + " " + units[0] + " is " + distance.format(value * 0.621371) + " " + units[1]);
-                break;
-            case "mile":
-                System.out.println("- " + value + " " + units[0] + " is " + distance.format(value * 1.609344) + " " + units[1]);
-                break;
-            case "C":
-                System.out.println("- " + value + " " + units[0] + " is " + temperature.format((value * 9 / 5) + 32) + " " + units[1]);
-                break;
-            case "F":
-                System.out.println("- " + value + " " + units[0] + " is " + temperature.format((value - 32) * 5 / 9) + " " + units[1]);
-                break;
-        }
+    static void convert(Scanner sc, String formula) {
+        formula(formula);
+        String []parts = formula.split(" = ", 2);
+        int ans = FormulaParser.evaluate(sc, parts[1]);
+        System.out.println("> " + parts[0] + " = " + ans);
     }
 
+    static void formula(String s) {
+        System.out.println();
+        for (int i = 0; i < s.length() + 4; i++) {
+            if (i == 0) System.out.print("┌");
+            else if (i == s.length() + 3) System.out.print("┐");
+            else System.out.print("─");
+        }
+        System.out.println("\n│ " + s + " │");
+        for (int i = 0; i < s.length() + 4; i++) {
+            if (i == 0) System.out.print("└");
+            else if (i == s.length() + 3) System.out.print("┘");
+            else System.out.print("─");
+        }
+        System.out.println();
+
+        HashSet<Character> symbolSet = FormulaParser.getSymbolSet(s);
+        for (char c : symbolSet) {
+            System.out.println(" " + c + " = " + unitsMap.get(c));
+        }
+        System.out.println();
+    }
 }

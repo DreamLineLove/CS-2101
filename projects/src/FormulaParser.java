@@ -1,5 +1,5 @@
-// Teacher, Area and Volume use the evaluate() method from this FormulaParser
-// class. When running Area and Volume, please also compile this class.
+// Teacher, Area, Volume, and Converter use the evaluate() method from this FormulaParser
+// class. When running Area, Volume, or Converter, please also compile this class.
 
 import java.util.Scanner;
 import java.util.HashMap;
@@ -28,6 +28,15 @@ class FormulaParser {
         if (c == '-') return val1 - val2;
         if (c == '*') return val1 * val2;
         return val1 / val2;
+    }
+
+    static HashSet<Character> getSymbolSet(String s) {
+        HashSet<Character> symbolSet = new HashSet<>();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (Character.isLetter(c)) symbolSet.add(c);
+        }
+        return symbolSet;
     }
 
     static HashMap<Character, Integer> getTerms(Scanner sc, String s) {
