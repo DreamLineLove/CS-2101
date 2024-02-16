@@ -1,9 +1,12 @@
 # The Strategy Pattern
 
-Please run the *Main* class from bin/.
+Please run the *Main* class from ../bin/.
 
-```
-# From StrategyPattern directory, run this command. 
+```bash
+# You need to cd out of this directory first:
+cd ../
+
+# From DesignPatterns/ directory, run this command. 
 java -cp bin/ Main
 ```
 
