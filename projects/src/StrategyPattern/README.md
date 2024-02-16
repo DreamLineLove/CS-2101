@@ -2,6 +2,11 @@
 
 Please run the *Main* class from bin/.
 
+```
+# From StrategyPattern directory, run this command. 
+java -cp bin/ Main
+```
+
 ## Explanation
 
 Here, the strategy pattern is implemented for sorting algorithms (just BubbleSort and SelectionSort for now to be precise).
