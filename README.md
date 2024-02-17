@@ -5,6 +5,14 @@ This repo hosts everything I have worked on for the CS-2101 course.
 ### Structure
 ```
 CS-2101
+├── assignments
+│   ├── DesignPatterns
+│   │   ├── bin
+│   │   └── StrategyPattern
+│   └── general
+│       ├── bin
+│       ├── src
+│       └── ToDo.md
 ├── chapter3
 │   ├── bin
 │   ├── personal
@@ -15,12 +23,9 @@ CS-2101
 ├── chapter5
 │   ├── bin
 │   └── textbook
-├── projects
-│   ├── bin
-│   └── src
-├── threads
-│   ├── bin
-│   └── src
 ├── README.md
-└── template.java
+├── template.java
+└── threads
+    ├── bin
+    └── src
 ```
