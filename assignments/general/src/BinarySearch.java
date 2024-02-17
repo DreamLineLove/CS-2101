@@ -1,5 +1,6 @@
-// Teacher, BinarySearch calls generateRandom() and bubblesort() methods from 
-// BubbleSort. When running BinarySearch, please also compile BubbleSort.
+// Teacher, BinarySearch calls generateRandom() method from GeneralUtilities.java and 
+// bubblesort() method from BubbleSort.java. When running BinarySearch, please also 
+// compile these classes.
 
 import java.util.Scanner;
 
@@ -9,22 +10,18 @@ class BinarySearch {
     static int t;
 
     public static void main(String []args) {
-        arr = BubbleSort.generateRandom(n);
+        arr = GeneralUtilities.generateRandom(n);
         BubbleSort.bubblesort(arr);
+        GeneralUtilities.printArr(arr, "\nSorted array:\t");
 
-        System.out.print("Sorted:\t");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
-        System.out.println();
-
-        System.out.print("Enter integer to search: ");
+        System.out.print("\nEnter integer to search: ");
         Scanner sc = new Scanner(System.in);
         t = sc.nextInt();
 
         int i = binarysearchFirstOccurence(arr, 0, arr.length - 1, t);
         if (i < 0) System.out.println("\n" + t + " not found.");
-        else System.out.println("\n" + t + " found first time at index " + i);
+        else System.out.println("\n" + t + " is found first time at index " + i);
+        System.out.println();
 
         sc.close();
     }
