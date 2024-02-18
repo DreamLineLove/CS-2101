@@ -49,7 +49,7 @@ class SelectionSort implements SortingAlgorithm {
     }
 }
 
-class Main {
+class Sort {
     static int[] arr;
 
     static int[] generateRandom(int size) {
