@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
-class DecimalToHexConverter {
+class DecimalToHexadecimalConverter {
     static char[] hexDigits(int dec) {
-        int []digits = new int[64];
+        int[] digits = new int[64];
         int place = 0;
         int number = dec;
         while (number > 0) {
@@ -12,7 +12,7 @@ class DecimalToHexConverter {
         }
         digits[place] = -1;
 
-        char []hexDigits = new char[place];
+        char[] hexDigits = new char[place];
 
         for (int i = 0; i < place; i++) {
             int temp = digits[i];
@@ -41,7 +41,7 @@ class DecimalToHexConverter {
         System.out.print("Enter decimal (base 10) number: ");
         dec = sc.nextInt();
 
-        char hexDigits[] = hexDigits(dec);
+        char[] hexDigits = hexDigits(dec);
 
         System.out.print("\nbase 10\t\tbase 16\n-------\t\t-------\n" + dec + "\t\t");
         for (int i = 0; i < hexDigits.length; i++) {

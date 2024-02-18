@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 class DecimalToBinaryConverter {
     static char[] bits(int dec) {
-        int []digits = new int[64];
+        int[] digits = new int[64];
         int place = 0;
         int number = dec;
         while (number > 0) {
@@ -12,7 +12,7 @@ class DecimalToBinaryConverter {
         }
         digits[place] = -1;
 
-        char []bits = new char[place];
+        char[] bits = new char[place];
 
         for (int i = 0; i < place; i++) {
             int temp = digits[i];
@@ -37,7 +37,7 @@ class DecimalToBinaryConverter {
         System.out.print("Enter decimal (base 10) number: ");
         dec = sc.nextInt();
 
-        char bits[] = bits(dec);
+        char[] bits = bits(dec);
 
         System.out.print("\nbase 10\t\tbase 2\n-------\t\t-------\n" + dec + "\t\t");
         for (int i = 0; i < bits.length; i++) {

@@ -78,6 +78,35 @@ class Hexadecimal implements Base {
     }
 }
 
+class Octal implements Base {
+    @Override
+    public char[] digits(int dec) {
+        int[] digits = new int[64];
+        int place = 0;
+        int number = dec;
+        while (number > 0) {
+            digits[place] = number % 8;
+            number = number / 8;
+            place += 1;
+        }
+        digits[place] = -1;
+
+        char[] octal_digits = new char[place];
+
+        for (int i = 0; i < place; i++) {
+            int temp = digits[i];
+            digits[i] = digits[place - 1];
+            digits[place - 1] = temp;
+            place -= 1;
+        }
+
+        for (int i = 0; i < octal_digits.length; i++) {
+            octal_digits[i] = (char)(digits[i] + '0');
+        }
+        return octal_digits;
+    }
+}
+
 class BaseConvert {
     static int dec;
     static int base;
@@ -93,8 +122,8 @@ class BaseConvert {
         Scanner sc = new Scanner(System.in);
         BaseConverter bc = new BaseConverter();
 
-        System.out.println("\tDECIMAL TO BINARY CONVERTER");
-        System.out.println("\t---------------------------\n");
+        System.out.println("\tDECIMAL TO BASE CONVERTER");
+        System.out.println("\t-------------------------\n");
 
         System.out.print("Enter base 10 (decimal) number: ");
         dec = sc.nextInt();
@@ -109,6 +138,10 @@ class BaseConvert {
         switch (base) {
             case 0:
             bc.setBase(new Binary());
+            digits = bc.convertBase(dec);
+            break;
+            case 1:
+            bc.setBase(new Octal());
             digits = bc.convertBase(dec);
             break;
             case 2:
