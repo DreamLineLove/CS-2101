@@ -13,33 +13,30 @@ class RegexCLI {
     static File f;
     static int count = 0;
 
-    static void parseArguments(String[] args) {
-        for (int i = 0; i < args.length; i++) {
-            String arg = args[i];
-            boolean startsWithSingleDash = (arg.charAt(0) == '-' ? true : false) && (arg.charAt(1) == '-' ? false : true);
-            
-            if (startsWithSingleDash) {
-                if (arg.contains("v")) verbose = true;
-                if (arg.contains("l")) line_mode = true;
-            } else if (arg.equals("--verbose")) {
-                verbose = true;
-            } else if (arg.equals("--line-mode")) {
-                line_mode = true;
-            } else if (arg.startsWith("--pattern=")) {
-                String[] parts = arg.split("=");
-                String quotedPart = parts[1];
-                pattern = quotedPart.substring(0, quotedPart.length());
-            } else if (arg.startsWith("--file-path")) {
-                String[] parts = arg.split("=");
-                String quotePart = parts[1];
-                file_path = quotePart.substring(0, quotePart.length());
-            }
-        }
+    static void parseArguments() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Would you like to see results line by line? (true or false): ");
+        verbose = sc.nextBoolean();
+
+        System.out.print("Would you like to treat each word as input? (true or false): ");
+        line_mode = !sc.nextBoolean();
+
+        sc.nextLine();
+
+        System.out.print("Enter relative file-path including file-name: ");
+        file_path = sc.nextLine();
+
+        System.out.print("Enter regex pattern to find in the file: ");
+        pattern = sc.nextLine();
+
+        sc.close();
+
         // FOR DEBUGGING
-        // System.out.println("verbose = " + verbose);
-        // System.out.println("line-mode = " + line_mode);
-        // System.out.println("pattern = " + pattern);
-        // System.out.println("file-path = " + file_path);
+        System.out.println("verbose = " + verbose);
+        System.out.println("line-mode = " + line_mode);
+        System.out.println("pattern = " + pattern);
+        System.out.println("file-path = " + file_path);
     }
 
     static void runRegex() {
@@ -49,7 +46,29 @@ class RegexCLI {
                 String line = sc.nextLine();
                 Matcher m = p.matcher(line);
                 int inner = 0;
-                if (line_mode) 
+                if (!line_mode && !verbose) 
+                {
+                    while (m.find())
+                    {
+                        count += 1;
+                    }
+                }
+                else if (line_mode && verbose) 
+                {
+                    if (m.matches()) 
+                    {
+                        inner = 1;
+                        count += 1;
+                    }
+                }
+                else if (line_mode) 
+                {
+                    if (m.matches()) 
+                    {
+                        count += 1;
+                    }
+                }
+                else if (verbose) 
                 {
                     while (m.find()) 
                     {
@@ -57,19 +76,6 @@ class RegexCLI {
                         count += 1;
                     }
                 } 
-                else if (verbose)
-                {
-                    if (m.matches()) {
-                        inner = 1;
-                        count += 1;
-                    }
-                }
-                else 
-                {
-                    if (m.matches()) {
-                        count += 1;
-                    }
-                }
                 if (verbose) System.out.println("[" + inner + "]\t" + line + "\n");
             }
             sc.close();
@@ -83,7 +89,7 @@ class RegexCLI {
     }
 
     public static void main(String[] args) {
-        parseArguments(args);
+        parseArguments();
 
         p = Pattern.compile(pattern);
         f = new File(file_path);
