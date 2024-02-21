@@ -19,27 +19,28 @@ class RegexCLI {
         System.out.print("Would you like to see results line by line? (true or false): ");
         verbose = sc.nextBoolean();
 
-        System.out.print("Would you like to treat each word as input? (true or false): ");
+        System.out.print("\nWould you like to treat each word as input? (true or false): ");
         line_mode = !sc.nextBoolean();
 
         sc.nextLine();
 
-        System.out.print("Enter relative file-path including file-name: ");
+        System.out.print("\nEnter relative file-path including file-name: ");
         file_path = sc.nextLine();
 
-        System.out.print("Enter regex pattern to find in the file: ");
+        System.out.print("\nEnter regex pattern to find in the file: ");
         pattern = sc.nextLine();
 
         sc.close();
 
         // FOR DEBUGGING
-        System.out.println("verbose = " + verbose);
-        System.out.println("line-mode = " + line_mode);
-        System.out.println("pattern = " + pattern);
-        System.out.println("file-path = " + file_path);
+        // System.out.println("verbose = " + verbose);
+        // System.out.println("line-mode = " + line_mode);
+        // System.out.println("pattern = " + pattern);
+        // System.out.println("file-path = " + file_path);
     }
 
     static void runRegex() {
+        if (verbose) System.out.println();
         try {
             Scanner sc = new Scanner(f);
             while (sc.hasNextLine()) {
@@ -76,7 +77,7 @@ class RegexCLI {
                         count += 1;
                     }
                 } 
-                if (verbose) System.out.println("[" + inner + "]\t" + line + "\n");
+                if (verbose) System.out.println("[" + inner + "]\t" + line);
             }
             sc.close();
         } catch (FileNotFoundException e) {
@@ -85,6 +86,7 @@ class RegexCLI {
             System.out.println("File not found!");
             System.exit(1);
         }
+        System.out.println();
         System.out.println("\tNumber of matches: " + count);
     }
 
