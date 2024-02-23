@@ -1,30 +1,19 @@
 import java.util.Scanner;
+import java.util.Stack;
 
 class DecimalToBinaryConverter {
-    static char[] bits(int dec) {
-        int[] digits = new int[64];
-        int place = 0;
-        int number = dec;
-        while (number > 0) {
-            digits[place] = number % 2;
-            number = number / 2;
-            place += 1;
-        }
-        digits[place] = -1;
+    static Stack<Character> toBinary(int dec) {
+        Stack<Character> digits = new Stack<>();
+        char currentDigit = 0;
+        int dividend = dec;
 
-        char[] bits = new char[place];
-
-        for (int i = 0; i < place; i++) {
-            int temp = digits[i];
-            digits[i] = digits[place - 1];
-            digits[place - 1] = temp;
-            place -= 1;
+        while (dividend > 0) {
+            currentDigit = (char)((dividend % 2) + '0');
+            digits.add(currentDigit);
+            dividend = dividend / 2;
         }
 
-        for (int i = 0; i < bits.length; i++) {
-            bits[i] = (char)(digits[i] + '0');
-        }
-        return bits;
+        return digits;
     }
 
     public static void main(String []args) {
@@ -37,12 +26,14 @@ class DecimalToBinaryConverter {
         System.out.print("Enter decimal (base 10) number: ");
         dec = sc.nextInt();
 
-        char[] bits = bits(dec);
+        Stack<Character> bits = toBinary(dec);
 
         System.out.print("\nbase 10\t\tbase 2\n-------\t\t-------\n" + dec + "\t\t");
-        for (int i = 0; i < bits.length; i++) {
-            System.out.print(bits[i]);
-            if ((i + 1) % 4 == 0) System.out.print(" ");
+
+        int i = 1;
+        while (!bits.empty()) {
+            System.out.print(bits.pop());
+            if (i % 4 == 0) System.out.print(" ");
         }
         System.out.println("\n");
         

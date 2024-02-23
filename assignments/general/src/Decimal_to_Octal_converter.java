@@ -1,30 +1,19 @@
 import java.util.Scanner;
+import java.util.Stack; 
 
 class DecimalToOctalConverter {
-    static char[] octalDigits(int dec) {
-        int[] digits = new int[64];
-        int place = 0;
-        int number = dec;
-        while (number > 0) {
-            digits[place] = number % 8;
-            number = number / 8;
-            place += 1;
-        }
-        digits[place] = -1;
+    static Stack<Character> toOctal(int dec) {
+        Stack<Character> digits = new Stack<>();
+        char currentDigit = 0;
+        int dividend = dec;
 
-        char[] octalDigits = new char[place];
-
-        for (int i = 0; i < place; i++) {
-            int temp = digits[i];
-            digits[i] = digits[place - 1];
-            digits[place - 1] = temp;
-            place -= 1;
+        while (dividend > 0) {
+            currentDigit = (char)((dividend % 8) + '0');
+            digits.add(currentDigit);
+            dividend = dividend / 8;
         }
 
-        for (int i = 0; i < octalDigits.length; i++) {
-            octalDigits[i] = (char)(digits[i] + '0');
-        }
-        return octalDigits;
+        return digits;
     }
 
     public static void main(String []args) {
@@ -37,12 +26,13 @@ class DecimalToOctalConverter {
         System.out.print("Enter decimal (base 10) number: ");
         dec = sc.nextInt();
 
-        char[] octalDigits = octalDigits(dec);
+        Stack<Character> octalDigits = toOctal(dec);
 
         System.out.print("\nbase 10\t\tbase 8\n-------\t\t-------\n" + dec + "\t\t");
-        for (int i = 0; i < octalDigits.length; i++) {
-            System.out.print(octalDigits[i]);
-            if ((i + 1) % 4 == 0) System.out.print(" ");
+        int i = 1;
+        while (!octalDigits.empty()) {
+            System.out.print(octalDigits.pop());
+            if (i % 4 == 0) System.out.print(" ");
         }
         System.out.println("\n");
         
