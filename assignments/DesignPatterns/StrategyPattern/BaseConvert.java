@@ -1,7 +1,8 @@
 import java.util.Scanner;
+import java.util.Stack;
 
 interface Base {
-    char[] digits(int dec);
+    Stack<Character> convert(int dec);
 }
 
 class BaseConverter {
@@ -11,106 +12,70 @@ class BaseConverter {
         this.base = base;
     }
 
-    char[] convertBase(int dec) {
-        return base.digits(dec);
+    Stack<Character> convertBase(int dec) {
+        return base.convert(dec);
     }
 }
 
 class Binary implements Base {
     @Override
-    public char[] digits(int dec) {
-        int[] digits = new int[64];
-        int place = 0;
-        int number = dec;
-        while (number > 0) {
-            digits[place] = number % 2;
-            number = number / 2;
-            place += 1;
-        }
-        digits[place] = -1;
+    public Stack<Character> convert(int dec) {
+        Stack<Character> digits = new Stack<>();
+        char currentDigit;
+        int dividend = dec;
 
-        char[] bits = new char[place];
-
-        for (int i = 0; i < place; i++) {
-            int temp = digits[i];
-            digits[i] = digits[place - 1];
-            digits[place - 1] = temp;
-            place -= 1;
+        while (dividend > 0) {
+            currentDigit = (char)((dividend % 2) + '0');
+            digits.add(currentDigit);
+            dividend = dividend / 2;
         }
 
-        for (int i = 0; i < bits.length; i++) {
-            bits[i] = (char)(digits[i] + '0');
-        }
-        return bits;
-    }
-}
-
-class Hexadecimal implements Base {
-    @Override
-    public char[] digits(int dec) {
-        int []digits = new int[64];
-        int place = 0;
-        int number = dec;
-        while (number > 0) {
-            digits[place] = number % 16;
-            number = number / 16;
-            place += 1;
-        }
-        digits[place] = -1;
-
-        char[] hexDigits = new char[place];
-
-        for (int i = 0; i < place; i++) {
-            int temp = digits[i];
-            digits[i] = digits[place - 1];
-            digits[place - 1] = temp;
-            place -= 1;
-        }
-
-        for (int i = 0; i < hexDigits.length; i++) {
-            if (digits[i] >= 0 && digits[i] < 10) {
-                hexDigits[i] = (char)(digits[i] + '0');
-            } else {
-                hexDigits[i] = (char)(digits[i] - 10 + 'A');
-            }
-        }
-        return hexDigits;
+        return digits;
     }
 }
 
 class Octal implements Base {
     @Override
-    public char[] digits(int dec) {
-        int[] digits = new int[64];
-        int place = 0;
-        int number = dec;
-        while (number > 0) {
-            digits[place] = number % 8;
-            number = number / 8;
-            place += 1;
-        }
-        digits[place] = -1;
+    public Stack<Character> convert(int dec) {
+        Stack<Character> digits = new Stack<>();
+        char currentDigit;
+        int dividend = dec;
 
-        char[] octal_digits = new char[place];
-
-        for (int i = 0; i < place; i++) {
-            int temp = digits[i];
-            digits[i] = digits[place - 1];
-            digits[place - 1] = temp;
-            place -= 1;
+        while (dividend > 0) {
+            currentDigit = (char)((dividend % 8) + '0');
+            digits.add(currentDigit);
+            dividend = dividend / 2;
         }
 
-        for (int i = 0; i < octal_digits.length; i++) {
-            octal_digits[i] = (char)(digits[i] + '0');
+        return digits;
+    }
+}
+
+class Hexadecimal implements Base {
+    @Override
+    public Stack<Character> convert(int dec) {
+        Stack<Character> digits = new Stack<>();
+        int currentDigit = 0;
+        int dividend = dec;
+
+        while (dividend > 0) {
+            currentDigit = dividend % 16;
+            if (currentDigit >= 0 && currentDigit < 10) {
+                digits.add((char)(currentDigit + '0'));
+            } else {
+                digits.add((char)(currentDigit - 10 + 'A'));
+            }
+            dividend = dividend / 16;
         }
-        return octal_digits;
+
+        return digits;
     }
 }
 
 class BaseConvert {
     static int dec;
     static int base;
-    static char[] digits;
+    static Stack<Character> digits = new Stack<>();
 
     static String[] bases = {
         "Base 2 (Binary)",
@@ -151,11 +116,14 @@ class BaseConvert {
         }
 
         String[] baseStr = bases[base].splitWithDelimiters(" ", 3);
+        System.out.println("\nBase 10 :\t" + dec);
+        System.out.print(baseStr[0] + " " + baseStr[2] + " :\t");
 
-        System.out.print("\nbase 10\t\t" + baseStr[0] + " " + baseStr[2] + "\n-------\t\t-------\n" + dec + "\t\t");
-        for (int i = 0; i < digits.length; i++) {
-            System.out.print(digits[i]);
-            if ((i + 1) % 4 == 0) System.out.print(" ");
+        int i = 1;
+        while (!digits.isEmpty()) {
+            System.out.print(digits.pop());
+            if (i % 4 == 0) System.out.print(" ");
+            i++;
         }
         System.out.println("\n");
         

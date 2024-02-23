@@ -33,6 +33,7 @@ class RegexEngine {
 }
 
 class Default implements Option {
+    @Override
     public void matches(String line, Pattern p) {
         Matcher m = p.matcher(line);
         if (m.matches()) Counter.increment();
@@ -40,6 +41,7 @@ class Default implements Option {
 }
 
 class LineMode implements Option {
+    @Override
     public void matches(String line, Pattern p) {
         Matcher m = p.matcher(line);
         while (m.find()) Counter.increment();
@@ -47,6 +49,7 @@ class LineMode implements Option {
 }
 
 class Verbose implements Option {
+    @Override
     public void matches(String line, Pattern p) {
         Matcher m = p.matcher(line);
         int inner = 0;
@@ -59,6 +62,7 @@ class Verbose implements Option {
 }
 
 class VerboseLineMode implements Option {
+    @Override
     public void matches(String line, Pattern p) {
         Matcher m = p.matcher(line);
         int inner = 0;

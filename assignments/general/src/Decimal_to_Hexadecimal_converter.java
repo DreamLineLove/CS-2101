@@ -12,7 +12,7 @@ class DecimalToHexadecimalConverter {
             if (currentDigit >= 0 && currentDigit < 10) {
                 digits.add((char)(currentDigit + '0'));
             } else {
-                digits.add((char)(currentDigit + 'A'));
+                digits.add((char)(currentDigit - 10 + 'A'));
             }
             dividend = dividend / 16;
         }
