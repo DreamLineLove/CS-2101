@@ -4,7 +4,7 @@ import java.util.Stack;
 class DecimalToOctalConverter {
     static Stack<Character> toOctal(int dec) {
         Stack<Character> digits = new Stack<>();
-        char currentDigit = 0;
+        char currentDigit;
         int dividend = dec;
 
         while (dividend > 0) {
@@ -16,7 +16,7 @@ class DecimalToOctalConverter {
         return digits;
     }
 
-    public static void main(String []args) {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("\tDECIMAL TO OCTAL CONVERTER");
@@ -28,11 +28,14 @@ class DecimalToOctalConverter {
 
         Stack<Character> octalDigits = toOctal(dec);
 
-        System.out.print("\nbase 10\t\tbase 8\n-------\t\t-------\n" + dec + "\t\t");
+        System.out.println("\ndecimal (base 10):\t" + dec);
+        System.out.print("octal   (base 8 ):\t");
+
         int i = 1;
         while (!octalDigits.empty()) {
             System.out.print(octalDigits.pop());
             if (i % 4 == 0) System.out.print(" ");
+            i++;
         }
         System.out.println("\n");
         

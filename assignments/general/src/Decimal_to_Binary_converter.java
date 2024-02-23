@@ -4,7 +4,7 @@ import java.util.Stack;
 class DecimalToBinaryConverter {
     static Stack<Character> toBinary(int dec) {
         Stack<Character> digits = new Stack<>();
-        char currentDigit = 0;
+        char currentDigit;
         int dividend = dec;
 
         while (dividend > 0) {
@@ -16,7 +16,7 @@ class DecimalToBinaryConverter {
         return digits;
     }
 
-    public static void main(String []args) {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("\tDECIMAL TO BINARY CONVERTER");
@@ -28,12 +28,14 @@ class DecimalToBinaryConverter {
 
         Stack<Character> bits = toBinary(dec);
 
-        System.out.print("\nbase 10\t\tbase 2\n-------\t\t-------\n" + dec + "\t\t");
+        System.out.println("\ndecimal (base 10):\t" + dec);
+        System.out.print("binary  (base 2 ):\t");
 
         int i = 1;
         while (!bits.empty()) {
             System.out.print(bits.pop());
             if (i % 4 == 0) System.out.print(" ");
+            i++;
         }
         System.out.println("\n");
         
