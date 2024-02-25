@@ -19,7 +19,7 @@ class DecimalToBinaryConverter {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("\tDECIMAL TO BINARY CONVERTER");
+        System.out.println("\tDECIMAL to BINARY converter");
         System.out.println("\t---------------------------\n");
 
         int dec;

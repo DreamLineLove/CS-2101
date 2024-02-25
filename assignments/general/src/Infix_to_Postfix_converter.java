@@ -88,7 +88,7 @@ class InfixToPostfixConverter {
     }
 
     public static void main(String[] args) {
-        System.out.println("\tINFIX to POSTFIX Converter");
+        System.out.println("\tINFIX to POSTFIX converter");
         System.out.println("\t--------------------------\n");
 
         System.out.println("INFIX    \t5.5 * (2 - 5)\tis equal to");

@@ -23,7 +23,7 @@ class DecimalToHexadecimalConverter {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("\tDECIMAL TO HEXADECIMAL CONVERTER");
+        System.out.println("\tDECIMAL to HEXADECIMAL converter");
         System.out.println("\t--------------------------------\n");
 
         int dec;
