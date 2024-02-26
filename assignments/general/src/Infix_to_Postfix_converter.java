@@ -15,7 +15,7 @@ class InfixToPostfixConverter {
         return c - '0';
     }
 
-    static int getPrecedence(char c) {
+    private static int getPrecedence(char c) {
         switch (c) {
             case '+':
             case '-': return 1;
@@ -35,47 +35,47 @@ class InfixToPostfixConverter {
         boolean tempered = false;
 
         outer: for (int i = 0; i < infixStr.length(); i++) {
-            char current = infixStr.charAt(i);
+            char c = infixStr.charAt(i);
 
-            if (isOperand(current)) {
-                if (current == '.') {
+            if (isOperand(c)) {
+                if (c == '.') {
                     isFractional = true;
                     continue outer;
                 }
                 if (isFractional) {
-                    val += getNumericValue(current) / Math.pow(10, power);
+                    val += getNumericValue(c) / Math.pow(10, power);
                     power++;
                     tempered = true;
                 } else {
-                    val = val * 10 + getNumericValue(current);
+                    val = val * 10 + getNumericValue(c);
                     tempered = true;
                 }
                 if (i < infixStr.length() - 1) {
                     char next = infixStr.charAt(i + 1);
                     if (!isOperand(next) && tempered) postfixStr += String.valueOf(val) + " ";
                 }
-            } else if (isOperator(current)) {
+            } else if (isOperator(c)) {
                 val = 0;
                 power = 1;
                 isFractional = false;
                 tempered = false;
-                if (current == '(') {
-                    operators.add(current);
+                if (c == '(') {
+                    operators.add(c);
                 } else if (operators.isEmpty()) {
-                    operators.add(current);
+                    operators.add(c);
                 } else if (operators.peek() == '(') {
-                    operators.add(current);
-                } else if (current == ')') {
+                    operators.add(c);
+                } else if (c == ')') {
                     while (operators.peek() != '(') {
                         postfixStr += operators.pop() + " ";
                     }
                     operators.pop();
-                } else if (getPrecedence(current) > getPrecedence(operators.peek())) {
-                    operators.add(current);
+                } else if (getPrecedence(c) > getPrecedence(operators.peek())) {
+                    operators.add(c);
                 } else {
                     char prev = operators.pop();
                     postfixStr += prev + " ";
-                    operators.add(current);
+                    operators.add(c);
                 }
             } 
         }
