@@ -4,7 +4,7 @@ import java.util.Scanner;
 class InfixToPostfixConverter {
     static boolean isOperand(char c) {
         boolean isDigit = (c >= '0' && c <= '9') ? true : false;
-        return (isDigit || c == '.');
+        return (isDigit || c == '.' || Character.isLetter(c));
     }
 
     static boolean isOperator(char c) {
@@ -15,7 +15,7 @@ class InfixToPostfixConverter {
         return c - '0';
     }
 
-    private static int getPrecedence(char c) {
+    static int getPrecedence(char c) {
         switch (c) {
             case '+':
             case '-': return 1;
@@ -38,6 +38,10 @@ class InfixToPostfixConverter {
             char c = infixStr.charAt(i);
 
             if (isOperand(c)) {
+                if (Character.isLetter(c)) {
+                    postfixStr += c + " ";
+                    continue outer;
+                }
                 if (c == '.') {
                     isFractional = true;
                     continue outer;
@@ -91,8 +95,8 @@ class InfixToPostfixConverter {
         System.out.println("\tINFIX to POSTFIX converter");
         System.out.println("\t--------------------------\n");
 
-        System.out.println("INFIX    \t5.5 * (2 - 5)\tis equal to");
-        System.out.println("POSTFIX  \t5.5 2 5 - *");
+        System.out.println("INFIX    \t5.5 * (x - y)\tis equal to");
+        System.out.println("POSTFIX  \t5.5 x y - *");
 
         System.out.println("\nLIMITATION");
         System.out.println("----------");
