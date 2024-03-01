@@ -1,5 +1,8 @@
 package general;
 
+import java.util.HashSet;
+import java.util.HashMap;
+
 class GeneralUtilities {
 	static int[] randomIntArray(int size) {
 		int[] arr = new int[size];
@@ -38,5 +41,28 @@ class GeneralUtilities {
                 System.out.print("─");
         }
         System.out.println("\n");
+    }
+
+    static void formula(String s, HashMap<Character, String> glossary) {
+        // System.out.println();
+        for (int i = 0; i < s.length() + 4; i++) {
+            if (i == 0) System.out.print("┌");
+            else if (i == s.length() + 3) System.out.print("┐");
+            else System.out.print("─");
+        }
+        System.out.println("\n│ " + s + " │");
+
+        for (int i = 0; i < s.length() + 4; i++) {
+            if (i == 0) System.out.print("└");
+            else if (i == s.length() + 3) System.out.print("┘");
+            else System.out.print("─");
+        }
+        System.out.println();
+
+        HashSet<Character> symbolSet = InfixToPostfixFormulaParser.uniqueSymbols(s);
+        for (char c : symbolSet) {
+            System.out.println(" " + c + " = " + glossary.get(c));
+        }
+        System.out.println();
     }
 }

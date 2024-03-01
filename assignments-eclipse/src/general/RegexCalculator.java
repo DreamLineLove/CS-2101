@@ -3,7 +3,6 @@ package general;
 import java.util.Scanner;
 
 class RegexCalculator {
-
     public static void main(String argv[]) {
         System.out.println("\tCALCULATOR (using regex)");
         System.out.println("\t------------------------\n");
@@ -51,5 +50,4 @@ class RegexCalculator {
         System.out.println("\n\tThanks for using regex calculator!");
         sc.close();
     }
-
 }
