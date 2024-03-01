@@ -1,10 +1,11 @@
 package general;
 
 import java.util.HashMap;
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 /**
- * BinarySearch.java uses 
+ * Converter.java uses 
  * - formula() method from GeneralUtilities.java , 
  * - evaluate() method from InfixToPostfixFormulaParser.java .
  * 
@@ -37,14 +38,12 @@ class Converter {
      unitsMap.put('C', "celsius");
      unitsMap.put('K', "kelvin");
  }
+ 
+ static DecimalFormat formatter = new DecimalFormat("#.####");
 
  public static void main(String []args) {
      System.out.println("\tUNIT CONVERTER");
      System.out.println("\t--------------");
-
-     // System.out.println("!.\tOnly integers may be calculated.");
-     // System.out.println("e.g.    5 is allowed.");
-     // System.out.println("        5.54 is not allowed.\n");
 
      Scanner sc = new Scanner(System.in);
      for (int i = 0; i < conversions.length; i++) {
@@ -62,6 +61,6 @@ class Converter {
      GeneralUtilities.formula(formula, unitsMap);
      String[] parts = formula.split(" = ", 2);
      double ans = InfixToPostfixFormulaParser.evaluate(sc, parts[1]);
-     System.out.println("> " + parts[0] + " = " + ans);
+     System.out.printf("> %s = %s\n", parts[0], formatter.format(ans));
  }
 }
