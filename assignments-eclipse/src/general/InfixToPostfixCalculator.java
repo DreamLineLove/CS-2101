@@ -11,7 +11,8 @@ class InfixToPostfixCalculator {
         return op1 / op2;
     }
 
-    static double evaluate(String postfixStr) {
+    static double evaluate(String infixStr) {
+    	String postfixStr = InfixToPostfixConverter.toPostfix(infixStr);
         Stack<Double> operands = new Stack<>();
 
         double val = 0;
@@ -71,10 +72,7 @@ class InfixToPostfixCalculator {
         String infixStr;
         System.out.print("Enter infix expression:\t");
         infixStr = sc.nextLine();
-
-        String postfixStr;
-        postfixStr = InfixToPostfixConverter.toPostfix(infixStr);
-        System.out.println("\n" + infixStr + " = " + evaluate(postfixStr));
+        System.out.println("\n" + infixStr + " = " + evaluate(infixStr));
 
         sc.close();
     }
