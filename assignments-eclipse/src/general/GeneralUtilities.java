@@ -3,8 +3,8 @@ package general;
 import java.util.HashSet;
 import java.util.HashMap;
 
-class GeneralUtilities {
-	static int[] randomIntArray(int size) {
+public class GeneralUtilities {
+	public static int[] randomIntArray(int size) {
 		int[] arr = new int[size];
 		for (int i = 0; i < arr.length; i++) {
 			arr[i] = (int)(Math.round(Math.random() * 9));
@@ -12,7 +12,7 @@ class GeneralUtilities {
 		return arr;
 	}
 
-    static void printIntArray(int[] array, String description) {
+    public static void printIntArray(int[] array, String description) {
         System.out.print(description);
         for (int i = 0; i < array.length; i++) {
             if (array.length > 10 && i == 0) System.out.println();
@@ -22,7 +22,7 @@ class GeneralUtilities {
         System.out.println();
     }
     
-    static void putInsideBox(String s) {
+    public static void putInsideBox(String s) {
         for (int i = 0; i < s.length() + 4; i++) {
             if (i == 0)
                 System.out.print("┌");
@@ -43,7 +43,7 @@ class GeneralUtilities {
         System.out.println("\n");
     }
 
-    static void formula(String s, HashMap<Character, String> glossary) {
+    public static void formula(String s, HashMap<Character, String> glossary) {
         // System.out.println();
         for (int i = 0; i < s.length() + 4; i++) {
             if (i == 0) System.out.print("┌");
