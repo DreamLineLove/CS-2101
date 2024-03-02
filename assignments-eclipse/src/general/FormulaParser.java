@@ -16,6 +16,11 @@ import java.util.Scanner;
  * them for you when you click "Run".
  */
 class FormulaParser {
+	static HashMap<Character, Double> constants = new HashMap<>();
+	static {
+		constants.put('π', Math.PI);
+	}
+
     static double operate(double op1, double op2, char operator) {
         if (operator == '+') return op1 + op2;
         if (operator == '-') return op1 - op2;
@@ -35,9 +40,11 @@ class FormulaParser {
     static HashMap<Character, Double> getTerms(Scanner sc, HashSet<Character> uniqueSymbols) {
         HashMap<Character, Double> map = new HashMap<>();
         for (char c : uniqueSymbols) {
-            System.out.print("value of " + c + ": ");
-            double val = sc.nextDouble();
-            map.put(c, val);
+        	if (!constants.containsKey(c)) {
+        		System.out.print("value of " + c + ": ");
+        		double val = sc.nextDouble();
+        		map.put(c, val);
+        	} else map.put(c, constants.get(c));
         }
         return map;
     }

@@ -1,11 +1,12 @@
 package general;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 /**
  * Volume.java uses 
  * - putInsideBox() method from GeneralUtilities.java and
- * - evaluate() method from InfixToPostfixConverter.java .
+ * - evaluate() method from FormulaParser.java .
  * 
  * If Teacher is manually compiling using command-line, please
  * also compile these classes.
@@ -14,9 +15,12 @@ import java.util.Scanner;
  * them for you when you click "Run".
  */
 class Volume {
+	static DecimalFormat formatter = new DecimalFormat("#.####");
+
     static int shape;
 
     static String[] shapes = {
+    		"Sphere",
             "Cube",
             "Triangular Prism",
             "Cuboid",
@@ -24,6 +28,7 @@ class Volume {
     };
 
     static String[] formulae = {
+    		"Volume of sphere = (4 / 3) * (π * r * r * r)",
             "Volume of cube = s * s * s",
             "Volume of triangular prism = (b * h * l) / 2",
             "Volume of cuboid = l * w * h",
@@ -55,6 +60,6 @@ class Volume {
         GeneralUtilities.putInsideBox(formula);
         String parts[] = formula.split("=", 2);
         double ans = FormulaParser.evaluate(sc, parts[1]);
-        System.out.println("> " + parts[0] + "= " + ans);
+        System.out.println("> " + parts[0] + "= " + formatter.format(ans));
     }
 }

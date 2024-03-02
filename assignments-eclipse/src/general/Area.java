@@ -1,11 +1,12 @@
 package general;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 /**
  * Area.java uses 
  * - putInsideBox() method from GeneralUtilities.java and
- * - evaluate() method from InfixToPostfixConverter.java .
+ * - evaluate() method from FormulaParser.java .
  * 
  * If Teacher is manually compiling using command-line, please
  * also compile these classes.
@@ -14,9 +15,12 @@ import java.util.Scanner;
  * them for you when you click "Run".
  */
 class Area {
+	static DecimalFormat formatter = new DecimalFormat("#.####");
+
     static int shape;
 
     static String[] shapes = {
+            "Circle",
             "Square",
             "Triangle",
             "Rectangle",
@@ -25,6 +29,7 @@ class Area {
     };
 
     static String[] formulae = {
+    		"Area of circle = π * r * r",
             "Area of square = s * s",
             "Area of triangle = (b * h) / 2",
             "Area of rectangle = l * w",
@@ -57,6 +62,6 @@ class Area {
         GeneralUtilities.putInsideBox(formula);
         String parts[] = formula.split("=", 2);
         double ans = FormulaParser.evaluate(sc, parts[1]);
-        System.out.println("> " + parts[0] + "= " + ans);
+        System.out.println("> " + parts[0] + "= " + formatter.format(ans));
     }
 }
