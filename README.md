@@ -7,12 +7,10 @@ This repo hosts everything I have worked on for the CS-2101 course.
 CS-2101
 ├── assignments
 │   ├── DesignPatterns
-│   │   ├── bin
-│   │   └── StrategyPattern
 │   └── general
-│       ├── bin
-│       ├── src
-│       └── ToDo.md
+├── assignments-eclipse
+│   ├── bin
+│   └── src
 ├── chapter3
 │   ├── bin
 │   ├── personal
@@ -25,6 +23,7 @@ CS-2101
 │   └── textbook
 ├── README.md
 ├── template.java
+├── test
 └── threads
     ├── bin
     └── src
