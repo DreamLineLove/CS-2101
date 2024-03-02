@@ -56,7 +56,7 @@ class Area {
     static void area(Scanner sc, String formula) {
         GeneralUtilities.putInsideBox(formula);
         String parts[] = formula.split("=", 2);
-        double ans = InfixToPostfixFormulaParser.evaluate(sc, parts[1]);
+        double ans = FormulaParser.evaluate(sc, parts[1]);
         System.out.println("> " + parts[0] + "= " + ans);
     }
 }

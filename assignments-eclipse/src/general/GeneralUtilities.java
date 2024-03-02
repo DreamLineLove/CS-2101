@@ -59,7 +59,7 @@ public class GeneralUtilities {
         }
         System.out.println();
 
-        HashSet<Character> symbolSet = InfixToPostfixFormulaParser.uniqueSymbols(s);
+        HashSet<Character> symbolSet = FormulaParser.uniqueSymbols(s);
         for (char c : symbolSet) {
             System.out.println(" " + c + " = " + glossary.get(c));
         }

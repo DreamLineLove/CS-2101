@@ -7,7 +7,7 @@ import java.util.Scanner;
 /**
  * Converter.java uses 
  * - formula() method from GeneralUtilities.java , 
- * - evaluate() method from InfixToPostfixFormulaParser.java .
+ * - evaluate() method from FormulaParser.java .
  * 
  * If Teacher is manually compiling using command-line, please
  * also compile these classes.
@@ -60,7 +60,7 @@ class Converter {
  static void convert(Scanner sc, String formula) {
      GeneralUtilities.formula(formula, unitsMap);
      String[] parts = formula.split(" = ", 2);
-     double ans = InfixToPostfixFormulaParser.evaluate(sc, parts[1]);
+     double ans = FormulaParser.evaluate(sc, parts[1]);
      System.out.printf("> %s = %s\n", parts[0], formatter.format(ans));
  }
 }
