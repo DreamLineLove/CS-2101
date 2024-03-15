@@ -23,6 +23,8 @@ class Converter {
      "Celsius to Fahrenheit",
      "Kelvin to Celsius",
      "Celsius to Kelvin",
+     "Hours to Seconds",
+     "Minutes to Seconds",
  };
 
  static String[] formulae = {
@@ -30,6 +32,8 @@ class Converter {
      "F = (C * 9) / 5 + 32",
      "C = K - 273",
      "K = C + 273",
+     "S = H * 3600",
+     "S = M * 60",
  };
 
  static HashMap<Character, String> unitsMap = new HashMap<>();
@@ -37,6 +41,9 @@ class Converter {
      unitsMap.put('F', "fahrenheit");
      unitsMap.put('C', "celsius");
      unitsMap.put('K', "kelvin");
+     unitsMap.put('S', "seconds");
+     unitsMap.put('H', "hours");
+     unitsMap.put('M', "minutes");
  }
  
  static DecimalFormat formatter = new DecimalFormat("#.####");
