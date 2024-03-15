@@ -1,10 +1,17 @@
 class Ex5_13 {
-
     public static void main(String[] args) {
-
-        int v = Integer.parseInt(args[0]);
-        System.out.println("The sum of digits is odd. " + isSumOdd(v));
-
+        if (args.length == 0) {
+            System.out.println("Provide an integer as program arguement!");
+        } else if (args.length > 1) {
+            System.out.println("Only one integer can be provided!");
+        } else {
+            int v = Integer.parseInt(args[0]);
+            if (v < 0) {
+                System.out.println("Only non-negative integers can be provided!");
+            } else {
+                System.out.println(isSumOdd(v));
+            }
+        }
     }
 
     static boolean isSumOdd(int v) {
@@ -16,5 +23,4 @@ class Ex5_13 {
             return (lastDigit % 2 != 0) ^ isSumOdd(remainingDigits);
         }
     }
-
 }

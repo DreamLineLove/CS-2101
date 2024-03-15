@@ -1,18 +1,20 @@
 class Ex5_12 {
-
     public static void main(String[] args) {
-
-        String s = args[0];
-        System.out.println(removeAlt(s));
-
-    }
-
-    static String removeAlt(String s) {
-        String New = new String();
-        for (int i = 0; i < s.length(); i++) {
-            if (i % 2 == 0) New += s.charAt(i);
+        if (args.length == 0) {
+            System.out.println("Provide a string as program arguement!");
+        } else if (args.length > 1) {
+            System.out.println("Only one string can be provided!");
+        } else {
+            String str = args[0];
+            System.out.println(removeAlt(str));
         }
-        return New;
     }
 
+    static String removeAlt(String str) {
+        String newStr = "";
+        for (int i = 0; i < str.length(); i++) {
+            if (i % 2 == 0) newStr += str.charAt(i);
+        }
+        return newStr;
+    }
 }
