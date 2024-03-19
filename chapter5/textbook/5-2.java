@@ -5,7 +5,7 @@ class Ex5_2 {
 
     static void printReverse(int num) {
         String numStr = String.valueOf(num);
-        char []reverseStr = new char[numStr.length()];
+        char[] reverseStr = new char[numStr.length()];
         for (int i = 0, j = numStr.length() - 1; i < numStr.length(); i++, j--) {
             reverseStr[i] = numStr.charAt(j);
         }
