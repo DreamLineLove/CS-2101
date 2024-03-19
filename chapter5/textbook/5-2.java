@@ -1,9 +1,6 @@
 class Ex5_2 {
-
     public static void main(String[] args) {
-
         printReverse(123456);
-
     }
 
     static void printReverse(int num) {
@@ -14,5 +11,4 @@ class Ex5_2 {
         }
         System.out.println(reverseStr);
     }
-
 }

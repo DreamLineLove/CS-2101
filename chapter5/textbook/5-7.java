@@ -27,4 +27,15 @@ class Ex5_7 {
 
         return gcd;
     }
+
+    static int gcd2(int num1, int num2) {
+        int gcd = 1, num = 1;
+
+        while (num <= num1 && num <= num2) {
+            if (num1 % num == 00 && num2 % num == 00) gcd = num;
+            num++;
+        }
+
+        return gcd;
+    }
 }
