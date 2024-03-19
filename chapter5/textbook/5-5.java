@@ -1,10 +1,7 @@
 class Ex5_5 {
-
     public static void main(String[] args) {
-
         int a = Integer.parseInt(args[0]);
         System.out.println(isOdd(a));
-
     }
 
     static boolean isMultiple(int a, int b) {
@@ -16,5 +13,4 @@ class Ex5_5 {
         if (!isMultiple(2, a)) return true;
         else return false;
     }
-
 }
