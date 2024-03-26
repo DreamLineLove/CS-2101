@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 class Ex4_11 {
-
     public static void main(String[] args) {
 
         int x, y;
@@ -40,5 +39,4 @@ class Ex4_11 {
         if (y < 0) return -y;
         else return y;
     }
-
 }

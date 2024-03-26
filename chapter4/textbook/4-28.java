@@ -26,7 +26,7 @@ class Ex4_28_29_30 {
         int count = 0;
 
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == x) count++;
+            if (arr[i] % x == 0) count++;
         }
 
         return count;

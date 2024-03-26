@@ -1,7 +1,5 @@
 class Ex4_14 {
-
     public static void main(String[] args) {
-
         int i = 0;
 
         for (i = 0; i <= 200; i++) {
@@ -36,11 +34,9 @@ class Ex4_14 {
         } while (i <= 1000);
 
         System.out.println("\n");
-
     } 
 
     static void newline(int i, int divideBy) {
         if (i % divideBy == 0) System.out.println();
     }
-
 }

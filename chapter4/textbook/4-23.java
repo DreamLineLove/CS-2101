@@ -1,7 +1,5 @@
 class Ex4_23 {
-
     public static void main(String[] args) {
-
         int highest = 0;
 
         for (int i = 1; i <= 5; i++) {
@@ -9,8 +7,7 @@ class Ex4_23 {
             System.out.println("Number " + i + " : " + num);
             if (highest < num) highest = num;
         }
+
         System.out.println("Highest Number is " + highest);
-
     }
-
 }
