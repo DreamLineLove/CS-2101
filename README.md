@@ -8,9 +8,6 @@ CS-2101
 ├── assignments
 │   ├── DesignPatterns
 │   └── general
-├── assignments-eclipse
-│   ├── bin
-│   └── src
 ├── chapter3
 │   ├── bin
 │   ├── personal
@@ -23,7 +20,6 @@ CS-2101
 │   └── textbook
 ├── README.md
 ├── template.java
-├── test
 └── threads
     ├── bin
     └── src
